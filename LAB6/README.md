@@ -91,22 +91,4 @@ python3 Evaluate_all_standalone.py
 
 ---
 
-## 6. Troubleshooting
-
-**`TypeError: unsupported operand type(s) for | ...`**
-Python เวอร์ชันเก่ากว่า 3.10 — ไฟล์นี้แก้แล้วด้วย
-`from __future__ import annotations` (บรรทัดแรกๆ ของไฟล์) ถ้ายังเจอ error
-เดิม ให้เช็คว่าใช้ `Evaluate_all_standalone.py` เวอร์ชันล่าสุดหรือยัง
-
-**`[warn] ไม่พบ ...`**
-ไม่ใช่ error แต่เป็นการแจ้งว่าไฟล์ ground truth หรือ OCR ที่ระบุใน
-`OCR_FILES` / `COURSE_GT_FILES` / `GT_DIR` ยังไม่มีอยู่จริงตาม path
-ที่คาดไว้ — ตรวจสอบโครงสร้างโฟลเดอร์ตามข้อ 3
-
-**ผล Page Level ว่างทั้งหมด**
-ตรวจว่ามีไฟล์ `data/ground_truth/Map_page_all.csv` และคอลัมน์ `program`,
-`pages`, `code`, `name_th`, `source_gt` ครบตามที่สคริปต์คาดหวัง
-
----
-
 รายละเอียดเต็มอยู่ใน docstring ต้นไฟล์ `Evaluate_all_standalone.py`
