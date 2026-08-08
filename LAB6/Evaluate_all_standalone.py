@@ -1,30 +1,11 @@
 """
 Made by Pawarit Pansing 67070098 (DSBA)
-Evaluate_all.py  (FIXED, v2 - page-level ครบ 3 โปรแกรม, STANDALONE)
 ========================================================
-รัน dataset จาก Lab ที่ผ่านมาทั้งหมด แล้วประเมินผล pipeline 3 ระดับ:
-
-  1. Field Level    - code recall + credits exact-match ของแต่ละแผน/หมวดวิชา
-  2. Page Level     - เทียบเลขหน้าที่ pipeline ค้นเจอ กับเลขหน้าจริงตาม ground truth
-                       ( ครบทั้ง AIT / IT / DSBA แล้ว จาก Map_page_all.csv
-  3. Category Level - สรุปผลรวมแยกตามหมวด: DSBA coop, DSBA no_coop, IT coop,
-                       IT no_coop, AIT, หมวดศึกษาทั่วไป (ต่อโปรแกรม), ข้อบังคับ
-
 Output:
   outputs/eval_field_level.json
   outputs/eval_page_level.csv
   outputs/eval_category_summary.csv
   พิมพ์สรุปผลลง console
-
-=====================================================================
-
-หมายเหตุ (STANDALONE MERGE):
-  ไฟล์นี้รวม extract_courses() (เดิมจาก src/ocr_system/field_extraction.py)
-  และ evaluate_courses() (เดิมจาก src/ocr_system/evaluation.py) เข้ามาไว้ใน
-  ไฟล์เดียว ไม่ต้องมีโฟลเดอร์ src/ocr_system/ อีกต่อไป รันได้ทันทีตราบใดที่
-  มีโฟลเดอร์ data/ground_truth/ และ outputs/ (พร้อมไฟล์ OCR json) อยู่ข้างๆ
-  ไฟล์นี้ ไม่ต้องติดตั้ง jiwer/Levenshtein เพิ่ม เพราะสคริปต์นี้ใช้แค่
-  evaluate_courses() (ไม่ใช้ evaluate_text()/CER/WER ที่พึ่งพา 2 แพ็กเกจนั้น)
 =====================================================================
 """
 
