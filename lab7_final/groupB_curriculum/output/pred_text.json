@@ -208,9 +208,10 @@
       "credits": "3(3-0-6)",
       "year": 2,
       "semester": 2,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06026207",
@@ -218,9 +219,10 @@
       "credits": "3(2-2-5)",
       "year": 2,
       "semester": 2,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06026208",
@@ -228,9 +230,10 @@
       "credits": "3(3-0-6)",
       "year": 2,
       "semester": 2,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06026209",
@@ -238,9 +241,10 @@
       "credits": "3(2-2-5)",
       "year": 2,
       "semester": 2,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06026210",
@@ -248,9 +252,10 @@
       "credits": "3(3-0-6)",
       "year": 2,
       "semester": 2,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06066102",
@@ -258,9 +263,10 @@
       "credits": "3(3-0-6)",
       "year": 2,
       "semester": 2,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06066301",
@@ -268,9 +274,10 @@
       "credits": "3(2-2-5)",
       "year": 2,
       "semester": 2,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06026211",
@@ -278,9 +285,10 @@
       "credits": "3(2-2-5)",
       "year": 3,
       "semester": 1,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06026212",
@@ -288,9 +296,10 @@
       "credits": "3(2-2-5)",
       "year": 3,
       "semester": 1,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -298,9 +307,10 @@
       "credits": "3(3-0-6)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -308,9 +318,10 @@
       "credits": "3(2-2-5)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -318,9 +329,10 @@
       "credits": "3(3-0-6)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -328,9 +340,10 @@
       "credits": "3(3-0-6)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -338,9 +351,10 @@
       "credits": "3(2-2-5)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -348,9 +362,10 @@
       "credits": "3(3-0-6)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "9064xxxx",
@@ -358,19 +373,21 @@
       "credits": "3(3-0-6) หรือ 3(2-2-5)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาศึกษาทั่วไป",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "90644042",
       "name_th": "กลุ่มวิชาที่กำหนดโดยคณะ*",
       "credits": "3(3-0-6)",
-      "year": 3,
-      "semester": 1,
+      "year": 0,
+      "semester": 0,
+      "category": "หมวดวิชาศึกษาทั่วไป",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026213",
@@ -378,9 +395,10 @@
       "credits": "3(2-2-5)",
       "year": 3,
       "semester": 2,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06026214",
@@ -388,9 +406,10 @@
       "credits": "3(0-9-0)",
       "year": 3,
       "semester": 2,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -398,9 +417,10 @@
       "credits": "3(3-0-6)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -408,9 +428,10 @@
       "credits": "3(2-2-5)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -418,9 +439,10 @@
       "credits": "3(3-0-6)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -428,9 +450,10 @@
       "credits": "3(3-0-6)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -438,9 +461,10 @@
       "credits": "3(2-2-5)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026xxx",
@@ -448,9 +472,10 @@
       "credits": "3(3-0-6)",
       "year": 0,
       "semester": 0,
+      "category": "หมวดวิชาเลือกเสรี",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06066100",
@@ -458,19 +483,21 @@
       "credits": "3(3-0-6)",
       "year": 3,
       "semester": 2,
+      "category": "หมวดวิชาเฉพาะ",
+      "type": "บังคับ",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "บังคับ"
+      "note": "ไม่มี"
     },
     {
       "code": "90643021",
       "name_th": "ผู้ประกอบการสมัยใหม่",
       "credits": "3(3-0-6)",
-      "year": 3,
-      "semester": 2,
+      "year": 0,
+      "semester": 0,
+      "category": "หมวดวิชาศึกษาทั่วไป",
+      "type": "เลือก",
       "prerequisite": "ไม่มี",
-      "flexible_year_semester": null,
-      "note": "เลือก"
+      "note": "ไม่มี"
     },
     {
       "code": "06026215",
@@ -535,7 +562,7 @@
   ],
   "_meta": {
     "pipeline": "text",
-    "elapsed_sec": 2885.5,
+    "elapsed_sec": 2122.3,
     "models": {
       "ocr": "scb10x/typhoon-ocr1.5-3b",
       "text": "qwen3:4b"

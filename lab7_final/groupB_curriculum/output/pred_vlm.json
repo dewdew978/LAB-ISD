@@ -1,0 +1,146 @@
+{
+  "program": null,
+  "plan": null,
+  "courses": [
+    {
+      "code": "06026200",
+      "name_th": "แคลคูลัส 1",
+      "credits": "3 (3-0-6)",
+      "year": 1,
+      "semester": 1,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาเฉพาะ"
+    },
+    {
+      "code": "06026202",
+      "name_th": "พีชคณิตเชิงเส้น",
+      "credits": "3 (3-0-6)",
+      "year": 1,
+      "semester": 1,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาเฉพาะ"
+    },
+    {
+      "code": "06066101",
+      "name_th": "พื้นฐานทางธุรกิจสำหรับเทคโนโลยีสารสนเทศ",
+      "credits": "3 (3-0-6)",
+      "year": 1,
+      "semester": 1,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาเฉพาะ"
+    },
+    {
+      "code": "06066303",
+      "name_th": "การแก้ปัญหาและการโปรแกรมคอมพิวเตอร์",
+      "credits": "3 (2-2-5)",
+      "year": 1,
+      "semester": 1,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาเฉพาะ"
+    },
+    {
+      "code": "90641001",
+      "name_th": "โรงเรียนสร้างเสน่ห์",
+      "credits": "2 (1-2-3)",
+      "year": 1,
+      "semester": 1,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาศึกษาทั่วไป"
+    },
+    {
+      "code": "90641003",
+      "name_th": "กีฬาและนันทนาการ",
+      "credits": "1 (0-3-2)",
+      "year": 1,
+      "semester": 1,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาศึกษาทั่วไป"
+    },
+    {
+      "code": "90644007",
+      "name_th": "ภาษาอังกฤษพื้นฐาน 1",
+      "credits": "3 (3-0-6)",
+      "year": 1,
+      "semester": 1,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาศึกษาทั่วไป"
+    },
+    {
+      "code": "06026206",
+      "name_th": "การวิเคราะห์ข้อมูลและการโปรแกรม",
+      "credits": null,
+      "year": 2,
+      "semester": 1,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาเฉพาะ"
+    },
+    {
+      "code": "null",
+      "name_th": "คณิตศาสตร์ไม่ต่อเนื่อง",
+      "credits": null,
+      "year": 0,
+      "semester": 0,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาเลือกเสรี"
+    },
+    {
+      "code": "null",
+      "name_th": "แนวคิดระบบฐานข้อมูล",
+      "credits": null,
+      "year": 0,
+      "semester": 0,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาเลือกเสรี"
+    },
+    {
+      "code": "null",
+      "name_th": "การเขียนโปรแกรมเว็บพื้นฐาน",
+      "credits": null,
+      "year": 0,
+      "semester": 0,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาเลือกเสรี"
+    },
+    {
+      "code": "null",
+      "name_th": "การวิเคราะห์และออกแบบระบบสารสนเทศ",
+      "credits": null,
+      "year": 0,
+      "semester": 0,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาเลือกเสรี"
+    },
+    {
+      "code": "null",
+      "name_th": "วิชาเลือกด้านภาษาและการสื่อสาร",
+      "credits": null,
+      "year": 0,
+      "semester": 0,
+      "prerequisite": "ไม่มี",
+      "flexible_year_semester": null,
+      "note": "หมวดวิชาเลือกเสรี"
+    }
+  ],
+  "_meta": {
+    "pipeline": "vlm",
+    "elapsed_sec": 5630.0,
+    "models": {
+      "ocr": "scb10x/typhoon-ocr1.5-3b",
+      "text": "qwen3:4b"
+    },
+    "dpi": 150,
+    "pages_per_chunk": 3
+  }
+}
