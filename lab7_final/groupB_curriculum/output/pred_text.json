@@ -870,12 +870,8 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026207",
@@ -887,12 +883,8 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026208",
@@ -904,12 +896,8 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026209",
@@ -921,12 +909,8 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026210",
@@ -938,12 +922,8 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06066102",
@@ -955,12 +935,8 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06066301",
@@ -972,12 +948,8 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026211",
@@ -989,12 +961,8 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026212",
@@ -1006,48 +974,14 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026xxx",
       "name_th": "วิชาเลือกกลุ่มวิทยาการข้อมูล 1",
       "name_en": null,
       "credits": "3(3-0-6)",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-    },
-    {
-      "code": "06026xxx",
-      "name_th": "วิชาเลือกกลุ่มการวิเคราะห์เชิงสถิติ 1",
-      "credits": "3(2-2-5)",
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-    },
-    {
-      "code": "06026xxx",
-      "name_th": "วิชาเลือกกลุ่มวิศวกรรมข้อมูล 1",
-      "credits": "3(3-0-6)",
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-=======
       "year": 3,
       "semester": 1,
       "category": "หมวดวิชาเฉพาะ",
@@ -1055,43 +989,12 @@
       "prerequisite": "ไม่มี",
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026xxx",
       "name_th": "วิชาเลือกกลุ่มวิทยาการข้อมูล 2",
       "name_en": null,
       "credits": "3(3-0-6)",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-    },
-    {
-      "code": "06026xxx",
-      "name_th": "วิชาเลือกกลุ่มการวิเคราะห์เชิงสถิติ 2",
-      "credits": "3(2-2-5)",
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-    },
-    {
-      "code": "06026xxx",
-      "name_th": "วิชาเลือกกลุ่มวิศวกรรมข้อมูล 2",
-      "credits": "3(3-0-6)",
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-=======
       "year": 3,
       "semester": 1,
       "category": "หมวดวิชาเฉพาะ",
@@ -1099,20 +1002,10 @@
       "prerequisite": "ไม่มี",
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "9064xxxx",
       "name_th": "วิชาเลือกหมวดวิชาศึกษาทั่วไป",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "credits": "3(3-0-6) หรือ 3(2-2-5)",
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาศึกษาทั่วไป",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-=======
       "name_en": null,
       "credits": "3(3-0-6)",
       "year": 3,
@@ -1122,21 +1015,12 @@
       "prerequisite": "ไม่มี",
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "90644042",
       "name_th": "กลุ่มวิชาที่กำหนดโดยคณะ*",
       "name_en": null,
       "credits": "3(3-0-6)",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาศึกษาทั่วไป",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-=======
       "year": 3,
       "semester": 1,
       "category": "หมวดวิชาศึกษาทั่วไป",
@@ -1144,7 +1028,6 @@
       "prerequisite": "ไม่มี",
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026213",
@@ -1156,12 +1039,8 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026214",
@@ -1173,48 +1052,14 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026xxx",
       "name_th": "วิชาเลือกกลุ่มวิทยาการข้อมูล 3",
       "name_en": null,
       "credits": "3(3-0-6)",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-    },
-    {
-      "code": "06026xxx",
-      "name_th": "วิชาเลือกกลุ่มการวิเคราะห์เชิงสถิติ 3",
-      "credits": "3(2-2-5)",
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-    },
-    {
-      "code": "06026xxx",
-      "name_th": "วิชาเลือกกลุ่มวิศวกรรมข้อมูล 3",
-      "credits": "3(3-0-6)",
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-=======
       "year": 3,
       "semester": 2,
       "category": "หมวดวิชาเฉพาะ",
@@ -1222,43 +1067,12 @@
       "prerequisite": "ไม่มี",
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026xxx",
       "name_th": "วิชาเลือกกลุ่มวิทยาการข้อมูล 4",
       "name_en": null,
       "credits": "3(3-0-6)",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-    },
-    {
-      "code": "06026xxx",
-      "name_th": "วิชาเลือกกลุ่มการวิเคราะห์เชิงสถิติ 4",
-      "credits": "3(2-2-5)",
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-    },
-    {
-      "code": "06026xxx",
-      "name_th": "วิชาเลือกกลุ่มวิศวกรรมข้อมูล 4",
-      "credits": "3(3-0-6)",
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาเลือกเสรี",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-=======
       "year": 3,
       "semester": 2,
       "category": "หมวดวิชาเฉพาะ",
@@ -1266,7 +1080,6 @@
       "prerequisite": "ไม่มี",
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06066100",
@@ -1278,26 +1091,14 @@
       "category": "หมวดวิชาเฉพาะ",
       "type": "บังคับ",
       "prerequisite": "ไม่มี",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "note": "ไม่มี"
-=======
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "90643021",
       "name_th": "กลุ่มวิชาที่กำหนดโดยคณะ*",
       "name_en": null,
       "credits": "3(3-0-6)",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-      "year": 0,
-      "semester": 0,
-      "category": "หมวดวิชาศึกษาทั่วไป",
-      "type": "เลือก",
-      "prerequisite": "ไม่มี",
-      "note": "ไม่มี"
-=======
       "year": 3,
       "semester": 2,
       "category": "หมวดวิชาศึกษาทั่วไป",
@@ -1305,7 +1106,6 @@
       "prerequisite": "ไม่มี",
       "flexible_year_semester": null,
       "note": null
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     },
     {
       "code": "06026215",
@@ -1375,11 +1175,7 @@
   ],
   "_meta": {
     "pipeline": "text",
-<<<<<<< HEAD:lab7_final/groupB_curriculum/output/pred_text.json
-    "elapsed_sec": 2122.3,
-=======
     "elapsed_sec": 1.2,
->>>>>>> 1dcda00 (docs & feat: update README with 96.7% F1 benchmark, prompt design, and hybrid parser optimizations):groupB_curriculum 2/output/pred_text.json
     "models": {
       "ocr": "scb10x/typhoon-ocr1.5-3b",
       "text": "qwen3:4b"
