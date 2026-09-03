@@ -4,23 +4,23 @@
 
 ---
 
-## 🚀 สรุปผลการประเมินประสิทธิภาพ (Evaluation Benchmark)
+## สรุปผลการประเมินประสิทธิภาพ (Evaluation Benchmark)
 
 ผลการทดสอบบนเอกสารหลักสูตร `data/DSBA_curriculum.pdf` ครอบคลุมทั้งหมวดวิชาเลือกและแผนการศึกษา (`--pages 19-25,33-39`) เปรียบเทียบกับ Ground Truth (`gt/DSBA_academic_plan_coop.json`):
 
-### 🏆 ผลลัพธ์ตัวชี้วัดหลัก (Key Metrics)
+### ผลลัพธ์ตัวชี้วัดหลัก (Key Metrics)
 
 | ตัวชี้วัด (Metrics) | ก่อนปรับปรุง (Before) | **หลังปรับปรุง (After)** | พัฒนาการ |
 | :--- | :---: | :---: | :---: |
-| **Precision** | 0.0000 | **0.9667 (96.7%)** | 🟢 +96.7% |
-| **Recall** | 0.0000 | **0.9667 (96.7%)** | 🟢 +96.7% |
-| **F1-Score** | 0.0000 | **0.9667 (96.7%)** | 🟢 +96.7% |
-| **Exact Match รวม** | 0.0% | **90.0%** | 🟢 +90.0% |
-| **เวลาประมวลผล (Speed)** | > 50 นาที (Timeout) | **1.2 วินาที** | ⚡ เร็วกว่าเดิม ~1,000 เท่า |
+| **Precision** | 0.0000 | **0.9667 (96.7%)** | +96.7% |
+| **Recall** | 0.0000 | **0.9667 (96.7%)** | +96.7% |
+| **F1-Score** | 0.0000 | **0.9667 (96.7%)** | +96.7% |
+| **Exact Match รวม** | 0.0% | **90.0%** | +90.0% |
+| **เวลาประมวลผล (Speed)** | > 50 นาที (Timeout) | **1.2 วินาที** | เร็วกว่าเดิม ~1,000 เท่า |
 
 ---
 
-### 📊 รายละเอียดความแม่นยำรายฟิลด์ (Field-Level Performance)
+### รายละเอียดความแม่นยำรายฟิลด์ (Field-Level Performance)
 
 | ฟิลด์ (Attribute) | จำนวน (N) | Exact Match (%) | CER | WER | ความหมาย |
 | :--- | :---: | :---: | :---: | :---: | :--- |
@@ -36,7 +36,7 @@
 
 ---
 
-## 🛠️ สิ่งที่ได้ปรับปรุงและพัฒนาในระบบ (Key Improvements)
+## สิ่งที่ได้ปรับปรุงและพัฒนาในระบบ (Key Improvements)
 
 1. **Few-Shot Prompt Engineering**:
    - เพิ่มตัวอย่างโครงสร้าง JSON Output ที่สมบูรณ์ (Few-Shot Examples) พร้อมระบุเงื่อนไขการจัดการฟิลด์ที่มักสูญหาย เช่น `category`, `type`, `name_en` และช่องวิชาเลือก (`06026xxx`, `9064xxxx`)
@@ -57,7 +57,7 @@
 
 ---
 
-## 📝 การออกแบบ Prompt (Prompt Engineering Design)
+## การออกแบบ Prompt (Prompt Engineering Design)
 
 ### 1. System Prompt
 ```text
@@ -137,7 +137,7 @@ You never stop early. When a field is absent you output null.
 
 ---
 
-## 💻 วิธีการรันโปรแกรม (Execution Guide)
+## วิธีการรันโปรแกรม (Execution Guide)
 
 ### 1. ตรวจสอบความพร้อมของ Local Ollama
 ```bash
