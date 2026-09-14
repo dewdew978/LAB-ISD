@@ -28,7 +28,7 @@ PROGRAM_CONFIGS = {
         "input_gt": ROOT / "data" / "ground_truth_C" / "DSBA_academic_plan_coop.json",
         "input_img": ROOT / "data" / "input_C",
         "gold_q": ROOT / "data" / "gold_questions_DSBA.json",
-        "lab7_dir": ROOT / "work" / "lab7b_run_DSBA",
+        "lab7_dir": ROOT / "work" / "lab7b_run" / "DSBA",
     },
     "IT": {
         "program_id": "IT-coop",
@@ -39,7 +39,7 @@ PROGRAM_CONFIGS = {
         "input_gt": ROOT / "data" / "ground_truth_C" / "IT_academic_plan_coop.json",
         "input_img": ROOT / "data" / "input_IT",
         "gold_q": ROOT / "data" / "gold_questions_IT.json",
-        "lab7_dir": ROOT / "work" / "lab7b_run_IT",
+        "lab7_dir": ROOT / "work" / "lab7b_run" / "IT",
     },
     "AIT": {
         "program_id": "AIT",
@@ -50,7 +50,7 @@ PROGRAM_CONFIGS = {
         "input_gt": ROOT / "data" / "ground_truth_C" / "AIT_academic_plan.json",
         "input_img": ROOT / "data" / "input_AIT",
         "gold_q": ROOT / "data" / "gold_questions_AIT.json",
-        "lab7_dir": ROOT / "work" / "lab7b_run_AIT",
+        "lab7_dir": ROOT / "work" / "lab7b_run" / "AIT",
     },
     "BIT": {
         "program_id": "BIT-coop",
@@ -61,7 +61,7 @@ PROGRAM_CONFIGS = {
         "input_gt": ROOT / "data" / "ground_truth_C" / "BIT_academic_plan_coop.json",
         "input_img": ROOT / "data" / "input_BIT",
         "gold_q": ROOT / "data" / "gold_questions_BIT.json",
-        "lab7_dir": ROOT / "work" / "lab7b_run_BIT",
+        "lab7_dir": ROOT / "work" / "lab7b_run" / "BIT",
     },
 }
 

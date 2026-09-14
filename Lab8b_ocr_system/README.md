@@ -155,10 +155,10 @@
 | **ภาพรวมทุกหลักสูตร (Combined Overall)** | **316** | **316** | **0** | **1.0000** | **0.9906** | **0.9953** |
 
 ### ไฟล์ผลการทดสอบ Lab 7B แต่ละหลักสูตร:
-- **DSBA**: [`work/lab7b_run/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run/) และ [`work/lab7b_run_DSBA/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run_DSBA/)
-- **IT**: [`work/lab7b_run_IT/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run_IT/)
-- **AIT**: [`work/lab7b_run_AIT/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run_AIT/)
-- **BIT**: [`work/lab7b_run_BIT/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run_BIT/)
+- **DSBA**: [`work/lab7b_run/DSBA/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run/DSBA/)
+- **IT**: [`work/lab7b_run/IT/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run/IT/)
+- **AIT**: [`work/lab7b_run/AIT/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run/AIT/)
+- **BIT**: [`work/lab7b_run/BIT/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run/BIT/)
 แต่ละโฟลเดอร์ประกอบด้วย `pred_vlm.json`, `intermediate_vlm.md`, `evaluation.json`, และ `comparison.csv`
 
 ---
@@ -192,10 +192,11 @@ Lab8b_ocr_system/
 │       ├── lab8b_curriculum_db.py     # สคริปต์จัดการฐานข้อมูลและ Text-to-SQL
 │       └── schemas.py                 # Data classes สำหรับผลลัพธ์ OCR
 └── work/
-    ├── lab7b_run_DSBA/                # ผลการสกัดและประเมิน Lab 7B (DSBA)
-    ├── lab7b_run_IT/                  # ผลการสกัดและประเมิน Lab 7B (IT)
-    ├── lab7b_run_AIT/                 # ผลการสกัดและประเมิน Lab 7B (AIT)
-    ├── lab7b_run_BIT/                 # ผลการสกัดและประเมิน Lab 7B (BIT)
+    ├── lab7b_run/                     # ผลการสกัดและประเมิน Lab 7B รวมทุกหลักสูตร
+    │   ├── DSBA/                      # ผลการสกัดและประเมินหลักสูตร DSBA
+    │   ├── IT/                        # ผลการสกัดและประเมินหลักสูตร IT
+    │   ├── AIT/                       # ผลการสกัดและประเมินหลักสูตร AIT
+    │   └── BIT/                       # ผลการสกัดและประเมินหลักสูตร BIT
     └── lab8b_run/
         ├── DSBA/                      # ชุดไฟล์เฉพาะหลักสูตร DSBA (curriculum.db, verify.json, eval_result.json)
         ├── IT/                        # ชุดไฟล์เฉพาะหลักสูตร IT (curriculum.db, verify.json, eval_result.json)
