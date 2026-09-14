@@ -117,9 +117,11 @@ def main() -> None:
         ]
         pred_file = next((p for p in candidates if p and p.exists()), cfg["input_gt"])
 
-        prog_json = LAB8_OUT / f"curriculum_{prog_key}.json"
-        prog_db = LAB8_OUT / f"curriculum_{prog_key}.db"
-        prog_verify = LAB8_OUT / f"verify_{prog_key}.json"
+        prog_dir = LAB8_OUT / prog_key
+        prog_dir.mkdir(parents=True, exist_ok=True)
+        prog_json = prog_dir / "curriculum.json"
+        prog_db = prog_dir / "curriculum.db"
+        prog_verify = prog_dir / "verify.json"
 
         run(LAB8, "import-lab7b", "-i", pred_file,
             "-o", prog_json,
@@ -133,7 +135,7 @@ def main() -> None:
         run(LAB8, "verify", "-d", prog_db, "-o", prog_verify)
 
         if cfg["gold_q"].exists():
-            shutil.copyfile(cfg["gold_q"], LAB8_OUT / f"gold_questions_{prog_key}.json")
+            shutil.copyfile(cfg["gold_q"], prog_dir / "gold_questions.json")
 
         converted_files[prog_key] = prog_json
 
@@ -141,6 +143,8 @@ def main() -> None:
     main_db = LAB8_OUT / "curriculum.db"
     main_verify = LAB8_OUT / "verify.json"
     main_gold = LAB8_OUT / "gold_questions.json"
+    comb_dir = LAB8_OUT / "combined"
+    comb_dir.mkdir(parents=True, exist_ok=True)
 
     if args.program == "all":
         # โหลดหลักสูตรแรกด้วย --replace และหลักสูตรถัดไปด้วย append (ไม่มี --replace)
@@ -162,20 +166,33 @@ def main() -> None:
         comb_q = ROOT / "data" / "gold_questions_combined.json"
         if comb_q.exists():
             shutil.copyfile(comb_q, main_gold)
+
+        # ซิงค์เข้าโฟลเดอร์ combined/
+        shutil.copyfile(main_db, comb_dir / "curriculum.db")
+        shutil.copyfile(LAB8_OUT / "curriculum.json", comb_dir / "curriculum.json")
+        shutil.copyfile(main_verify, comb_dir / "verify.json")
+        if main_gold.exists():
+            shutil.copyfile(main_gold, comb_dir / "gold_questions.json")
     else:
         prog_key = args.program
-        shutil.copyfile(converted_files[prog_key], LAB8_OUT / "curriculum.json")
-        shutil.copyfile(LAB8_OUT / f"curriculum_{prog_key}.db", main_db)
-        shutil.copyfile(LAB8_OUT / f"verify_{prog_key}.json", main_verify)
-        if (LAB8_OUT / f"gold_questions_{prog_key}.json").exists():
-            shutil.copyfile(LAB8_OUT / f"gold_questions_{prog_key}.json", main_gold)
+        prog_dir = LAB8_OUT / prog_key
+        shutil.copyfile(prog_dir / "curriculum.json", LAB8_OUT / "curriculum.json")
+        shutil.copyfile(prog_dir / "curriculum.db", main_db)
+        shutil.copyfile(prog_dir / "verify.json", main_verify)
+        if (prog_dir / "gold_questions.json").exists():
+            shutil.copyfile(prog_dir / "gold_questions.json", main_gold)
 
     # 5) ประเมินผลคำถามทองคำ
     if not args.skip_eval:
         if not main_gold.exists() or len(json.loads(main_gold.read_text(encoding="utf-8"))) < 30:
             print(f"\nเพิ่มคำถามใน {main_gold} ให้ครบ 30 ข้อ แล้วรันใหม่")
             return
-        run(LAB8, "eval", "-d", main_db, "-q", main_gold, "-o", LAB8_OUT / "eval_result.json")
+        eval_out = LAB8_OUT / "eval_result.json"
+        run(LAB8, "eval", "-d", main_db, "-q", main_gold, "-o", eval_out)
+        if args.program == "all":
+            shutil.copyfile(eval_out, comb_dir / "eval_result.json")
+        else:
+            shutil.copyfile(eval_out, LAB8_OUT / args.program / "eval_result.json")
 
     print(f"\nเสร็จสิ้นกระบวนการ Lab 8B: {LAB8_OUT}")
 

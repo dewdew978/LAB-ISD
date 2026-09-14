@@ -197,24 +197,19 @@ Lab8b_ocr_system/
     ├── lab7b_run_AIT/                 # ผลการสกัดและประเมิน Lab 7B (AIT)
     ├── lab7b_run_BIT/                 # ผลการสกัดและประเมิน Lab 7B (BIT)
     └── lab8b_run/
-        ├── curriculum.db              # ฐานข้อมูล SQLite รวม 4 หลักสูตร (DSBA, IT, AIT, BIT)
-        ├── curriculum_DSBA.db         # ฐานข้อมูลเฉพาะหลักสูตร DSBA
-        ├── curriculum_IT.db           # ฐานข้อมูลเฉพาะหลักสูตร IT
-        ├── curriculum_AIT.db          # ฐานข้อมูลเฉพาะหลักสูตร AIT
-        ├── curriculum_BIT.db          # ฐานข้อมูลเฉพาะหลักสูตร BIT
-        ├── curriculum.json            # ข้อมูลหลักสูตร JSON
-        ├── curriculum_IT.json         # ข้อมูลหลักสูตร IT JSON
-        ├── curriculum_AIT.json        # ข้อมูลหลักสูตร AIT JSON
-        ├── curriculum_BIT.json        # ข้อมูลหลักสูตร BIT JSON
+        ├── DSBA/                      # ชุดไฟล์เฉพาะหลักสูตร DSBA (curriculum.db, verify.json, eval_result.json)
+        ├── IT/                        # ชุดไฟล์เฉพาะหลักสูตร IT (curriculum.db, verify.json, eval_result.json)
+        ├── AIT/                       # ชุดไฟล์เฉพาะหลักสูตร AIT (curriculum.db, verify.json, eval_result.json)
+        ├── BIT/                       # ชุดไฟล์เฉพาะหลักสูตร BIT (curriculum.db, verify.json, eval_result.json)
+        ├── combined/                  # ชุดไฟล์ฐานข้อมูลรวม 4 หลักสูตร
         ├── schema/
         │   ├── curriculum.schema.json # JSON Schema (Pydantic Model Dump)
         │   └── schema.sql             # คำสั่ง SQL DDL และ Views
-        ├── verify.json                # ผลการตรวจสอบความสอดคล้อง 7 ข้อ (รวม 4 หลักสูตร)
-        ├── verify_IT.json             # ผลการตรวจสอบความสอดคล้องหลักสูตร IT
-        ├── verify_AIT.json            # ผลการตรวจสอบความสอดคล้องหลักสูตร AIT
-        ├── verify_BIT.json            # ผลการตรวจสอบความสอดคล้องหลักสูตร BIT
+        ├── curriculum.db              # ฐานข้อมูล SQLite รวม 4 หลักสูตรสำหรับส่งงาน
+        ├── curriculum.json            # ข้อมูลหลักสูตร JSON
+        ├── verify.json                # ผลการตรวจสอบความสอดคล้อง 7 ข้อ
         ├── gold_questions.json        # ชุดคำถามทดสอบทองคำ
-        └── eval_result.json           # ผลการประเมินความแม่นยำ Text-to-SQL (100% Correct)
+        └── eval_result.json           # ผลการประเมินความแม่นยำ Text-to-SQL (100% ครบทุกข้อ)
 ```
 
 ---
