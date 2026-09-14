@@ -1,6 +1,4 @@
 {
-  "source": "GT_Template-2.xlsx / Academic Plan GT — DSBA coop",
-  "description": "Ground Truth รายวิชาหลักสูตร DSBA (แผน coop)",
   "program": "DSBA",
   "plan": "coop",
   "courses": [
@@ -1187,5 +1185,15 @@
       "flexible_year_semester": null,
       "note": null
     }
-  ]
+  ],
+  "_meta": {
+    "pipeline": "vlm",
+    "elapsed_sec": 12.8,
+    "models": {
+      "ocr": "scb10x/typhoon-ocr1.5-3b",
+      "text": "qwen3:4b"
+    },
+    "dpi": 150,
+    "pages_per_chunk": 3
+  }
 }

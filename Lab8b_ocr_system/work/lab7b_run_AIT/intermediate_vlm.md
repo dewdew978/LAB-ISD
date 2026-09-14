@@ -1,67 +1,108 @@
-<page_number>19</page_number>
-รายละเอียดหลักสูตร
+<page_number>23</page_number>
+รายละเอียดหลักสูตร AIT
 
-3.3 แผนการศึกษา
 
-<table><tr><th colspan="2">ปีที่ 1 ภาคการศึกษาที่ 1<th rowspan="8"></th></th></tr><tr><td>รหัสวิชา</td><td>ชื่อวิชา</td><td>หน่วยกิต (บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)</td></tr><tr><td>06046400</td><td>แคลคูลัส 1<br/>CALCULUS 1</td><td>3 (3-0-6)</td></tr><tr><td>06046402</td><td>พีชคณิตเชิงเส้น<br/>LINEAR ALGEBRA</td><td>3 (3-0-6)</td></tr><tr><td>06066000</td><td>คณิตศาสตร์ไม่ต่อเนื่อง<br/>DISCRETE MATHEMATICS</td><td>3 (3-0-6)</td></tr><tr><td>06066001</td><td>ความน่าจะเป็นและสถิติ<br/>PROBABILITY AND STATISTICS</td><td>3 (3-0-6)</td></tr><tr><td>06066303</td><td>การแก้ปัญหาและการโปรแกรมคอมพิวเตอร์<br/>PROBLEM SOLVING AND COMPUTER PROGRAMMING</td><td>3 (2-2-5)</td></tr><tr><td>90641008</td><td>พื้นฐานทักษะการสื่อสารภาษาอังกฤษ<br/>INTRODUCTION TO ENGLISH COMMUNICATION SKILLS</td><td>0 (0-0-45)</td></tr><tr><th colspan="2">รวม<td>15</td></th></tr><tr><td colspan="3">ปีที่ 1 ภาคการศึกษาที่ 2</td></tr><tr><td rowspan="8"></td><td rowspan="8">รหัสวิชา</td><td rowspan="8">ชื่อวิชา</td><td>หน่วยกิต (บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)</td></tr><tr><td>06046401 แคลคูลัส 2<br/>CALCULUS 2</td><td>3 (3-0-6)</td></tr><tr><td>06046403 การโปรแกรมคอมพิวเตอร์<br/>COMPUTER PROGRAMMING</td><td>3 (2-2-5)</td></tr><tr><td>06066301 โครงสร้างข้อมูลและอัลกอริทึม<br/>DATA STRUCTURES AND ALGORITHMS</td><td>3 (2-2-5)</td></tr><tr><td>06046404 พื้นฐานของระบบสมองกลฝังตัว<br/>FUNDAMENTAL OF EMBEDDED SYSTEM</td><td>3 (3-0-6)</td></tr><tr><td>90641007 พลเมืองดิจิทัล<br/>DIGITAL CITIZEN</td><td>3 (3-0-6)</td></tr><tr><td>90641004 โครงงานกลุ่ม 1<br/>TEAM-PROJECT 1</td><td>1 (0-2-1)</td></tr><tr><td>9064xxxxx วิชาเลือกหมวดวิชาศึกษาทั่วไป<br/>GENERAL EDUCATION COURSES</td><td>3 (x-x-x)</td></tr><tr><th colspan="2">รวม<td>19</td></th></tr></table>
+### ปีที่ 1 ภาคการศึกษาที่ 1
 
-วท.บ.(สาขาวิชาเทคโนโลยีปัญญาประดิษฐ์) คณะเทคโนโลยีสารสนเทศ สจล.
+| รหัสวิชา | ชื่อวิชา | หน่วยกิต |
+| :---: | :--- | :---: |
+| 06016401 | คณิตศาสตร์สำหรับเทคโนโลยีสารสนเทศ<br/>MATHEMATICS FOR INFORMATION TECHNOLOGY | 3(3-0-6) |
+| 06046400 | แคลคูลัส 1<br/>CALCULUS 1 | 3(3-0-6) |
+| 06046402 | พีชคณิตเชิงเส้น<br/>LINEAR ALGEBRA | 3(3-0-6) |
+| 06066000 | คณิตศาสตร์ไม่ต่อเนื่อง<br/>DISCRETE MATHEMATICS | 3(3-0-6) |
+| 06066001 | ความน่าจะเป็นและสถิติ<br/>PROBABILITY AND STATISTICS | 3(3-0-6) |
+| 06066303 | การแก้ปัญหาและการโปรแกรมคอมพิวเตอร์<br/>PROBLEM SOLVING AND COMPUTER PROGRAMMING
+PROGRAMMING | 3(2-2-5) |
+| 90641008 | พื้นฐานทักษะการสื่อสารภาษาอังกฤษ<br/>INTRODUCTION TO ENGLISH COMMUNICATION SKILLS | 0(0-0-45) |
 
----
+### ปีที่ 1 ภาคการศึกษาที่ 2
 
-<page_number>20</page_number>
-รายละเอียดหลักสูตร
+| รหัสวิชา | ชื่อวิชา | หน่วยกิต |
+| :---: | :--- | :---: |
+| 06046401 | แคลคูลัส 2<br/>CALCULUS 2 | 3(3-0-6) |
+| 06046403 | การโปรแกรมคอมพิวเตอร์<br/>COMPUTER PROGRAMMING | 3(2-2-5) |
+| 06066301 | โครงสร้างข้อมูลและอัลกอริทึม<br/>DATA STRUCTURES AND ALGORITHMS | 3(2-2-5) |
+| 06046404 | พื้นฐานของระบบสมองกลฝังตัว<br/>FUNDAMENTAL OF EMBEDDED SYSTEM | 3(3-0-6) |
+| 90641007 | พลเมืองดิจิทัล<br/>DIGITAL CITIZEN | 3(3-0-6) |
+| 90641004 | โครงงานกลุ่ม 1<br/>TEAM-PROJECT 1 | 1(0-2-1) |
+| 9064xxxx | วิชาเลือกหมวดวิชาศึกษาทั่วไป<br/>GENERAL EDUCATION COURSES | 3(x-x-x) |
 
-ปีที่ 2 ภาคการศึกษาที่ 1
+### ปีที่ 2 ภาคการศึกษาที่ 1
 
-<table><tr><td>รหัสวิชา</td><td>ชื่อวิชา</td><td>หน่วยกิต (บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)</td></tr><tr><td>06066300</td><td>แนวคิดระบบฐานข้อมูล<br/>DATABASE SYSTEM CONCEPTS</td><td>3 (2-2-5)</td></tr><tr><td>06046405</td><td>การเรียนรู้ของเครื่องเชิงความน่าจะเป็น<br/>PROBABILISTIC MACHINE LEARNING</td><td>3 (3-0-6)</td></tr><tr><td>06046406</td><td>พื้นฐานการเรียนรู้เชิงลึก<br/>FUNDAMENTALS OF DEEP LEARNING</td><td>3 (3-0-6)</td></tr><tr><td>06046409</td><td>คอมพิวเตอร์วิทัศน์เบื้องต้น<br/>INTRODUCTION TO COMPUTER VISION</td><td>3 (3-0-6)</td></tr><tr><td>06046413</td><td>ปัญญาประดิษฐ์และอินเทอร์เน็ตประสานสรรพสิ่ง<br/>ARTIFICIAL INTELLIGENCE AND INTERNET OF THING</td><td>3 (3-0-6)</td></tr><tr><td rowspan="2">90641009</td><td>ทักษะการสื่อสารภาษาอังกฤษระหว่างวัฒนธรรม 1<br/>INTERCULTURAL COMMUNICATION SKILLS IN ENGLISH 1</td><td>3 (3-0-6)</td></tr><tr><td></td><td></td></tr><tr><td colspan="2">รวม</td><td>18</td></tr></table>
+| รหัสวิชา | ชื่อวิชา | หน่วยกิต |
+| :---: | :--- | :---: |
+| 06066300 | แนวคิดระบบฐานข้อมูล<br/>DATABASE SYSTEM CONCEPTS | 3(2-2-5) |
+| 06046405 | การเรียนรู้ของเครื่องเชิงความน่าจะเป็น<br/>PROBABILISTIC MACHINE LEARNING | 3(3-0-6) |
+| 06046406 | พื้นฐานการเรียนรู้เชิงลึก<br/>FUNDAMENTALS OF DEEP LEARNING | 3(3-0-6) |
+| 06046409 | คอมพิวเตอร์วิทัศน์เบื้องต้น<br/>INTRODUCTION TO COMPUTER VISION | 3(3-0-6) |
+| 06046413 | ปัญญาประดิษฐ์และอินเทอร์เน็ตประสานสรรพสิ่ง<br/>ARTIFICIAL INTELLIGIENCE AND INTERNET OF THING | 3(3-0-6) |
+| 90641009 | ทักษะการสื่อสารภาษาอังกฤษระหว่างวัฒนธรรม 1<br/>INTERCULTURAL COMMUNICATION SKILLS IN ENGLISH 1 | 3(3-0-6) |
 
-ปีที่ 2 ภาคการศึกษาที่ 2
+### ปีที่ 2 ภาคการศึกษาที่ 2
 
-<table><tr><td>รหัสวิชา</td><td>ชื่อวิชา</td><td>หน่วยกิต (บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)</td></tr><tr><td>06046407</td><td>พื้นฐานวิทยาการข้อมูล<br/>FUNDAMENTALS OF DATA SCIENCE</td><td>3 (3-0-6)</td></tr><tr><td>06046408</td><td>การแสดงข้อมูลด้วยแผนภาพ<br/>DATA VISUALIZATION</td><td>3 (2-2-5)</td></tr><tr><td>06046410</td><td>การประมวลผลภาษาธรรมชาติเบื้องต้น<br/>INTRODUCTION TO NATURAL LANGUAGE PROCESSING</td><td>3 (3-0-6)</td></tr><tr><td>06046412</td><td>การเพิ่มประสิทธิภาพโครงข่ายประสาทเทียม<br/>NEURAL NETWORK OPTIMIZATION</td><td>3 (3-0-6)</td></tr><tr><td>06046411</td><td>การวิเคราะห์และเพิ่มประสิทธิภาพเครือข่าย<br/>NETWORK ANALYSIS AND OPTIMIZATION</td><td>3 (3-0-6)</td></tr><tr><td rowspan="2">90641010</td><td>ทักษะการสื่อสารภาษาอังกฤษระหว่างวัฒนธรรม 2<br/>INTERCULTURAL COMMUNICATION SKILLS IN ENGLISH 2</td><td>3 (3-0-6)</td></tr><tr><td></td><td></td></tr><tr><td rowspan="2">90641005</td><td>โครงงานกลุ่ม 2<br/>TEAM-PROJECT 2</td><td>1 (0-2-1)</td></tr><tr><td></td><td></td></tr><tr><td colspan="2">รวม</td><td>19</td></tr></table>
+| รหัสวิชา | ชื่อวิชา | หน่วยกิต |
+| :---: | :--- | :---: |
+| 06046407 | พื้นฐานวิทยาการข้อมูล<br/>FUNDAMENTALS OF DATA SCIENCE | 3(3-0-6) |
+| 06046408 | การแสดงข้อมูลด้วยแผนภาพ<br/>DATA VISUALIZATION | 3(2-2-5) |
+| 06046410 | การประมวลผลภาษาธรรมชาติเบื้องต้น<br/>INTRODUCTION TO NATURAL LANGUAGE PROCESSING | 3(3-0-6) |
+| 06046412 | การเพิ่มประสิทธิภาพโครงข่ายประสาทเทียม<br/>NEURAL NETWORK OPTIMIZATION | 3(3-0-6) |
+| 06046411 | การวิเคราะห์และเพิ่มประสิทธิภาพเครือข่าย<br/>NETWORK ANALYSIS AND OPTIMIZATION | 3(3-0-6) |
+| 90641010 | ทักษะการสื่อสารภาษาอังกฤษระหว่างวัฒนธรรม 2<br/>INTERCULTURAL COMMUNICATION SKILLS IN ENGLISH 2 | 3(3-0-6) |
+| 90641005 | โครงงานกลุ่ม 2<br/>TEAM-PROJECT 2 | 1(0-2-1) |
 
-วท.บ.(สาขาวิชาเทคโนโลยีปัญญาประดิษฐ์) คณะเทคโนโลยีสารสนเทศ สจล.
-<figure>
-ตราสัญลักษณ์ของมหา
+### ปีที่ 3 ภาคการศึกษาที่ 1
 
----
+| รหัสวิชา | ชื่อวิชา | หน่วยกิต |
+| :---: | :--- | :---: |
+| 06046415 | การประมวลผลสัญญาณ<br/>SIGNAL PROCESSING | 3(3-0-6) |
+| 06046414 | การประมวลผลภาษาธรรมชาติด้วยการเรียนรู้อย่างเชิงลึก<br/>NATURAL LANGUAGE PROCESSING WITH DEEP LEARNING | 3(3-0-6) |
+| 90642012 | กระบวนการคิดเชิงออกแบบ<br/>DESIGN THINKING | 3(3-0-6) |
+| 060464xx | วิชาเลือกเทคโนโลยีปัญญาประดิษฐ์เฉพาะทาง<br/>ELECTIVE IN ARTIFICIAL INTELLIGENCE SPECIALIZATION | 6(3-0-6) |
+| 06046440 | วิชาสัมมนาปัญญาประดิษฐ์<br/>SEMINAR IN ARTIFICIAL INTELLIGENCE | 3(2-2-5) |
 
-<page_number>21</page_number>
-รายละเอียดหลักสูตร
+### ปีที่ 3 ภาคการศึกษาที่ 2
 
-ปีที่ 3 ภาคการศึกษาที่ 1
+| รหัสวิชา | ชื่อวิชา | หน่วยกิต |
+| :---: | :--- | :---: |
+| 060464xx | วิชาเลือกเทคโนโลยีปัญญาประดิษฐ์เฉพาะทาง<br/>ELECTIVE IN ARTIFICIAL INTELLIGENCE SPECIALIZATION | 6(3-0-6) |
+| 06046441 | โครงงานเทคโนโลยีปัญญาประดิษฐ์ 1<br/>PROJECT IN ARTIFICIAL INTELLIGENCE TECHNOLOGY 1 | 3(0-9-0) |
+| 90641006 | โครงงานกลุ่ม 3<br/>TEAM-PROJECT 3 | 1(0-2-1) |
+| xxxxxxxx | วิชาเลือกเสรี 1<br/>FREE ELECTIVE COURSE 1 | 3(x-x-x) |
 
-<table><tr><td>รหัสวิชา</td><td>ชื่อวิชา</td><td>หน่วยกิต (บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)</td></tr><tr><td>06046415</td><td>การประมวลผลสัญญาณ<br/>SIGNAL PROCESSING</td><td>3 (3-0-6)</td></tr><tr><td>06046414</td><td>การประมวลผลภาษาธรรมชาติด้วยการเรียนรู้อย่างเชิงลึก<br/>NATURAL LANGUAGE PROCESSING WITH DEEP LEARNING</td><td>3 (3-0-6)</td></tr><tr><td>90642012</td><td>กระบวนการคิดเชิงออกแบบ<br/>DESIGN THINKING</td><td>3 (3-0-6)</td></tr><tr><td>060464xx</td><td>วิชาเลือกเทคโนโลยีปัญญาประดิษฐ์เฉพาะทาง<br/>ELECTIVE IN ARTIFICIAL INTELLIGENCE SPECIALIZATION</td><td>6 (3-0-6)</td></tr><tr><td>06046440</td><td>วิชาสัมมนาปัญญาประดิษฐ์<br/>SEMINAR IN ARTIFICIAL INTELLIGENCE</td><td>3 (2-2-5)</td></tr><tr><td colspan="2">รวม</td><td>18</td></tr></table>
+### ปีที่ 4 ภาคการศึกษาที่ 1
 
-ปีที่ 3 ภาคการศึกษาที่ 2
+| รหัสวิชา | ชื่อวิชา | หน่วยกิต |
+| :---: | :--- | :---: |
+| 06046442 | โครงงานเทคโนโลยีปัญญาประดิษฐ์ 2<br/>PROJECT IN ARTIFICIAL INTELLIGENCE TECHNOLOGY 2 | 3(0-9-0) |
+| 9064xxxx | วิชาเลือกหมวดวิชาศึกษาทั่วไป<br/>GENERAL EDUCATION COURSES | 3(x-x-x) |
+| 90644xxx | วิชาเลือกด้านภาษาและการสื่อสาร<br/>LANGUAGE AND COMMUNICATION COURSES | 3(x-x-x) |
+| xxxxxxxx | วิชาเลือกเสรี 2<br/>FREE ELECTIVE COURSE 2 | 3(x-x-x) |
 
-<table><tr><td>รหัสวิชา</td><td>ชื่อวิชา</td><td>หน่วยกิต (บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)</td></tr><tr><td>060464xx</td><td>วิชาเลือกเทคโนโลยีปัญญาประดิษฐ์เฉพาะทาง<br/>ELECTIVE IN ARTIFICIAL INTELLIGENCE SPECIALIZATION</td><td>6 (3-0-6)</td></tr><tr><td>06046441</td><td>โครงงานเทคโนโลยีปัญญาประดิษฐ์ 1<br/>PROJECT IN ARTIFICIAL INTELLIGENCE TECHNOLOGY 1</td><td>3 (0-9-0)</td></tr><tr><td>90641006</td><td>โครงงานกลุ่ม 3<br/>TEAM-PROJECT 3</td><td>1 (0-2-1)</td></tr><tr><td>xxxxxxxx</td><td>วิชาเลือกเสรี 1<br/>FREE ELECTIVE COURSE 1</td><td>3 (x-x-x)</td></tr><tr><td colspan="2">รวม</td><td>13</td></tr></table>
+### ปีที่ 4 ภาคการศึกษาที่ 2
 
-วท.บ.(สาขาวิชาเทคโนโลยีปัญญาประดิษฐ์) คณะเทคโนโลยีสารสนเทศ สจล.
+| รหัสวิชา | ชื่อวิชา | หน่วยกิต |
+| :---: | :--- | :---: |
+| 06046443 หรือ 06046444 | สหกิจศึกษาทางเทคโนโลยีปัญญาประดิษฐ์ 
+สหกิจศึกษาต่างประเทศทางเทคโนโลยีปัญญาประดิษฐ์<br/>COOPERATIVE EDUCATION IN ARTIFICIAL INTELLIGIENCE TECHNOLOGY 
+OVERSEA COOPERATIVE EDUCATION IN ARTIFICIAL INTELLIGIENCE TECHNOLOGY | 6(0-45-0) |
 
-มหาวิทยาลัยสุโขทัยธรรมาธิราช
+### หมวดวิชาเลือกเสรี / วิชาเลือก
 
----
-
-<page_number>22</page_number>
-รายละเอียดหลักสูตร
-
-ปีที่ 4 ภาคการศึกษาที่ 1
-
-<table><tr><td>รหัสวิชา</td><td>ชื่อวิชา</td><td>หน่วยกิต (บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)</td></tr><tr><td>06046442</td><td>โครงงานเทคโนโลยีปัญญาประดิษฐ์ 2<br/>PROJECT IN ARTIFICIAL INTELLIGENCE TECHNOLOGY 2</td><td>3 (0-9-0)</td></tr><tr><td>9064xxxx</td><td>วิชาเลือกหมวดวิชาศึกษาทั่วไป<br/>GENERAL EDUCATION COURSES</td><td>3 (x-x-x)</td></tr><tr><td>9064xxxx</td><td>วิชาเลือกด้านภาษาและการสื่อสาร<br/>LANGUAGE AND COMMUNICATION COURSES</td><td>3 (x-x-x)</td></tr><tr><td>xxxxxxxxxxx</td><td>วิชาเลือกเสรี 2<br/>FREE ELECTIVE COURSE 2</td><td>3 (x-x-x)</td></tr><tr><td colspan="2">รวม</td><td>12</td></tr></table>
-
-ปีที่ 4 ภาคการศึกษาที่ 2
-
-<table><tr><td>รหัสวิชา</td><td>ชื่อวิชา</td><td>หน่วยกิต (บรรยาย-ปฏิบัติ-ศึกษาด้วยตนเอง)</td></tr><tr><td rowspan="3">06046443 หรือ<br/>06046444</td><td>สหกิจศึกษาทางเทคโนโลยีปัญญาประดิษฐ์<br/>COOPERATIVE EDUCATION IN ARTIFICIAL<br/>INTELLIGENCE TECHNOLOGY หรือ</td><td rowspan="3">6 (0-45-0)</td></tr><tr><td>สหกิจศึกษาต่างประเทศทางเทคโนโลยีปัญญาประดิษฐ์<br/>OVERSEA COOPERATIVE EDUCATION IN<br/>ARTIFICIAL INTELLIGENCE TECHNOLOGY</td></tr><tr><td colspan="2">รวม</td><td>6</td></tr></table>
-
-รวมตลอดหลักสูตร 120 หน่วยกิต
-
-3.4 คำอธิบายรายวิชา คำอธิบายรายวิชา (ภาคผนวก จ)
-
-4\. องค์ประกอบเกี่ยวกับประสบการณ์ภาคสนาม (การฝึกงาน หรือสหกิจศึกษา) (ถ้ามี)
-- สหกิจศึกษา
-(1) ลักษณะของงานที่ได้รับมอบหมาย มีความสัมพันธ์กับหลักสูตร
-(2) คณาจารย์และสถานประกอบการ มีส่วนร่วมในการประเมินผลงานของนักศึกษา
-(3) มีคณะกรรมการสหกิจศึกษา ในการกำกับดูแลมาตรฐาน
-
-วท.บ.(สาขาวิชาเทคโนโลยีปัญญาประดิษฐ์) คณะเทคโนโลยีสารสนเทศ สจล.
+| รหัสวิชา | ชื่อวิชา | หน่วยกิต |
+| :---: | :--- | :---: |
+| 06046416 | การเรียนรู้เชิงลึกสำหรับคอมพิวเตอร์วิทัศน์<br/>DEEP LEARNING FOR COMPUTER VISION | 3(3-0-6) |
+| 06046417 | การประมวลผลภาพ<br/>IMAGE PROCESSING | 3(3-0-6) |
+| 06046418 | การระบุตำแหน่งและการสร้างแผนที่ของหุ่นยนต์<br/>ROBOT LOCALIZATION AND MAPPING | 3(3-0-6) |
+| 06046419 | การเรียนรู้แบบเสริมกำลัง<br/>REINFORCEMENT LEARNING | 3(3-0-6) |
+| 06046420 | ระบบให้คำแนะนำอัจฉริยะ<br/>INTELLIGENT RECOMMENDATION SYSTEMS | 3(3-0-6) |
+| 06046421 | การประมวลผลภาษาธรรมชาติขั้นสูง<br/>ADVANCED NATURAL LANGUAGE PROCESSING | 3(3-0-6) |
+| 06046422 | จริยธรรมด้านปัญญาประดิษฐ์<br/>ARTIFICIAL INTELLIGIENCE ETHICS | 3(3-0-6) |
+| 06046423 | การออกแบบบริการด้านปัญญาประดิษฐ์<br/>ARTIFICIAL INTELLIGIENCE SERVICE DESIGN | 3(3-0-6) |
+| 06046424 | ตรรกะและการแทนความรู้<br/>LOGIC AND KNOWLEDGE REPRESENTATION | 3(3-0-6) |
+| 06046425 | โมเดลแบบกำเนิด<br/>GENERATIVE MODEL | 3(3-0-6) |
+| 06046430 | หัวข้อคัดสรรด้านปัญญาประดิษฐ์ 1<br/>SELECTED TOPICS IN ARTIFICIAL INTELLIGENCE 1 | 3(3-0-6) |
+| 06046431 | หัวข้อคัดสรรด้านปัญญาประดิษฐ์ 2<br/>SELECTED TOPICS IN ARTIFICIAL INTELLIGENCE 2 | 3(3-0-6) |
+| 06046432 | หัวข้อคัดสรรด้านปัญญาประดิษฐ์ 3<br/>SELECTED TOPICS IN ARTIFICIAL INTELLIGENCE 3 | 3(3-0-6) |
+| 06046433 | หัวข้อคัดสรรด้านปัญญาประดิษฐ์ 4<br/>SELECTED TOPICS IN ARTIFICIAL INTELLIGENCE 4 | 3(3-0-6) |
+| 06046434 | หัวข้อคัดสรรด้านปัญญาประดิษฐ์ 5<br/>SELECTED TOPICS IN ARTIFICIAL INTELLIGENCE 5 | 3(3-0-6) |
+| 06046435 | หัวข้อคัดสรรด้านปัญญาประดิษฐ์ 6<br/>SELECTED TOPICS IN ARTIFICIAL INTELLIGENCE 6 | 3(3-0-6) |

@@ -1,0 +1,166 @@
+{
+  "vlm": {
+    "tokenizer": "pythainlp/newmm",
+    "attributes": {
+      "code": {
+        "label": "รหัสวิชา",
+        "n_items": 63,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 516,
+        "error_samples": []
+      },
+      "name_th": {
+        "label": "ชื่อวิชา (ไทย) ⭐",
+        "n_items": 63,
+        "cer": 0.0,
+        "wer": 0.0,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 2006,
+        "error_samples": []
+      },
+      "name_en": {
+        "label": "ชื่อวิชา (อังกฤษ) ⭐",
+        "n_items": 63,
+        "cer": 0.0,
+        "wer": 0.0,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 1992,
+        "error_samples": []
+      },
+      "credits": {
+        "label": "หน่วยกิต",
+        "n_items": 63,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 533,
+        "error_samples": []
+      },
+      "year_sem": {
+        "label": "ปี/ภาค",
+        "n_items": 63,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 189,
+        "error_samples": []
+      },
+      "category": {
+        "label": "หมวดวิชา",
+        "n_items": 63,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 893,
+        "error_samples": []
+      },
+      "ctype": {
+        "label": "บังคับ/เลือก",
+        "n_items": 63,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 350,
+        "error_samples": []
+      },
+      "prereq": {
+        "label": "วิชาบังคับก่อน",
+        "n_items": 63,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 336,
+        "error_samples": []
+      },
+      "flexible": {
+        "label": "ปี/ภาคยืดหยุ่น",
+        "n_items": 63,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 57,
+        "error_samples": []
+      }
+    },
+    "overall_micro_cer": 0.0,
+    "alignment": {
+      "matched": 63,
+      "missed": 0,
+      "spurious": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "gt_total": 63,
+      "pred_total": 63,
+      "missed_codes": [],
+      "spurious_codes": []
+    },
+    "internal_check": {
+      "ok": false,
+      "n_courses": 63,
+      "n_duplicate_keys": 0,
+      "credits_by_term": {
+        "1/1": 18,
+        "1/2": 18,
+        "2/1": 18,
+        "2/2": 18,
+        "3/1": 18,
+        "3/2": 12,
+        "4/1": 15,
+        "4/2": 6
+      },
+      "total_credits_fixed_terms": 123,
+      "issues": [
+        "06036145: ปี/ภาค = 0 แต่ไม่ได้ระบุ flexible_year_semester",
+        "06036146: ปี/ภาค = 0 แต่ไม่ได้ระบุ flexible_year_semester"
+      ]
+    }
+  }
+}

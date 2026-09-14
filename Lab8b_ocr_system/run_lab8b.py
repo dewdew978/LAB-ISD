@@ -26,7 +26,9 @@ PROGRAM_CONFIGS = {
         "total_credits": 135,
         "years": 4,
         "input_gt": ROOT / "data" / "ground_truth_C" / "DSBA_academic_plan_coop.json",
+        "input_img": ROOT / "data" / "input_C",
         "gold_q": ROOT / "data" / "gold_questions_DSBA.json",
+        "lab7_dir": ROOT / "work" / "lab7b_run_DSBA",
     },
     "IT": {
         "program_id": "IT-coop",
@@ -35,7 +37,9 @@ PROGRAM_CONFIGS = {
         "total_credits": 129,
         "years": 4,
         "input_gt": ROOT / "data" / "ground_truth_C" / "IT_academic_plan_coop.json",
+        "input_img": ROOT / "data" / "input_IT",
         "gold_q": ROOT / "data" / "gold_questions_IT.json",
+        "lab7_dir": ROOT / "work" / "lab7b_run_IT",
     },
     "AIT": {
         "program_id": "AIT",
@@ -44,7 +48,9 @@ PROGRAM_CONFIGS = {
         "total_credits": 120,
         "years": 4,
         "input_gt": ROOT / "data" / "ground_truth_C" / "AIT_academic_plan.json",
+        "input_img": ROOT / "data" / "input_AIT",
         "gold_q": ROOT / "data" / "gold_questions_AIT.json",
+        "lab7_dir": ROOT / "work" / "lab7b_run_AIT",
     },
     "BIT": {
         "program_id": "BIT-coop",
@@ -53,7 +59,9 @@ PROGRAM_CONFIGS = {
         "total_credits": 126,
         "years": 4,
         "input_gt": ROOT / "data" / "ground_truth_C" / "BIT_academic_plan_coop.json",
+        "input_img": ROOT / "data" / "input_BIT",
         "gold_q": ROOT / "data" / "gold_questions_BIT.json",
+        "lab7_dir": ROOT / "work" / "lab7b_run_BIT",
     },
 }
 
@@ -84,23 +92,30 @@ def main() -> None:
     # 1) สร้าง Schema DDL & JSON Schema
     run(LAB8, "schema", "-o", LAB8_OUT / "schema")
 
-    # 2) รัน Lab 7B หากต้องการ (สำหรับ DSBA ที่มีภาพอินพุต)
-    if not args.skip_lab7 and (args.program in ("all", "DSBA")):
-        run(LAB7, "-i", "data/input_C",
-            "-g", "data/ground_truth_C/DSBA_academic_plan_coop.json",
-            "-p", "vlm", "-o", LAB7_OUT)
-
     programs_to_run = list(PROGRAM_CONFIGS.keys()) if args.program == "all" else [args.program]
+
+    # 2) รัน Lab 7B หากต้องการ (รองรับทุกหลักสูตรที่มีภาพอินพุตและ Ground Truth)
+    if not args.skip_lab7:
+        for prog_key in programs_to_run:
+            cfg = PROGRAM_CONFIGS[prog_key]
+            out_dir = cfg["lab7_dir"]
+            out_dir.mkdir(parents=True, exist_ok=True)
+            if not (out_dir / "pred_vlm.json").exists() and cfg["input_img"].exists():
+                run(LAB7, "-i", cfg["input_img"],
+                    "-g", cfg["input_gt"],
+                    "-p", "vlm", "-o", out_dir)
 
     # 3) แปลงข้อมูลแต่ละหลักสูตรเข้าสู่ JSON และสร้าง DB แยกรายหลักสูตร
     converted_files = {}
     for prog_key in programs_to_run:
         cfg = PROGRAM_CONFIGS[prog_key]
-        if prog_key == "DSBA":
-            predictions = [LAB7_OUT / "pred_vlm.json", LAB7_OUT / "pred_markdown.json"]
-            pred_file = next((p for p in predictions if p.exists()), cfg["input_gt"])
-        else:
-            pred_file = cfg["input_gt"]
+        candidates = [
+            cfg["lab7_dir"] / "pred_vlm.json",
+            ROOT / "work" / f"lab7b_run_{prog_key}" / "pred_vlm.json",
+            LAB7_OUT / "pred_vlm.json" if prog_key == "DSBA" else None,
+            LAB7_OUT / "pred_markdown.json" if prog_key == "DSBA" else None,
+        ]
+        pred_file = next((p for p in candidates if p and p.exists()), cfg["input_gt"])
 
         prog_json = LAB8_OUT / f"curriculum_{prog_key}.json"
         prog_db = LAB8_OUT / f"curriculum_{prog_key}.db"

@@ -5,286 +5,90 @@
       "code": {
         "label": "รหัสวิชา",
         "n_items": 57,
-        "cer": 0.940171,
+        "cer": 0.0,
         "wer": null,
-        "exact_match_acc": 0.035088,
+        "exact_match_acc": 1.0,
         "n_sub": 0,
-        "n_del": 440,
+        "n_del": 0,
         "n_ins": 0,
-        "n_missing": 55,
+        "n_missing": 0,
         "n_hallucinated": 0,
         "n_ref_chars": 468,
-        "error_samples": [
-          {
-            "key": "06016401 [ตกแถว]",
-            "gt": "06016401",
-            "pred": ""
-          },
-          {
-            "key": "06046400 [ตกแถว]",
-            "gt": "06046400",
-            "pred": ""
-          },
-          {
-            "key": "06046402 [ตกแถว]",
-            "gt": "06046402",
-            "pred": ""
-          },
-          {
-            "key": "06066000 [ตกแถว]",
-            "gt": "06066000",
-            "pred": ""
-          },
-          {
-            "key": "06066001 [ตกแถว]",
-            "gt": "06066001",
-            "pred": ""
-          }
-        ]
+        "error_samples": []
       },
       "name_th": {
         "label": "ชื่อวิชา (ไทย) ⭐",
         "n_items": 57,
-        "cer": 0.958887,
-        "wer": 0.96861,
-        "exact_match_acc": 0.017544,
+        "cer": 0.0,
+        "wer": 0.0,
+        "exact_match_acc": 1.0,
         "n_sub": 0,
-        "n_del": 1516,
+        "n_del": 0,
         "n_ins": 0,
-        "n_missing": 55,
+        "n_missing": 0,
         "n_hallucinated": 0,
         "n_ref_chars": 1581,
-        "error_samples": [
-          {
-            "key": "06046443 หรือ 06046444",
-            "gt": "สหกิจศึกษาทางเทคโนโลยีปัญญาประดิษฐ์ \nสหกิจศึกษาต่างประเทศทางเทคโนโลยีปัญญาประดิษฐ์",
-            "pred": "สหกิจศึกษาทางเทคโนโลยีปัญญาประดิษฐ์"
-          },
-          {
-            "key": "06016401 [ตกแถว]",
-            "gt": "คณิตศาสตร์สำหรับเทคโนโลยีสารสนเทศ",
-            "pred": ""
-          },
-          {
-            "key": "06046400 [ตกแถว]",
-            "gt": "แคลคูลัส 1",
-            "pred": ""
-          },
-          {
-            "key": "06046402 [ตกแถว]",
-            "gt": "พีชคณิตเชิงเส้น",
-            "pred": ""
-          },
-          {
-            "key": "06066000 [ตกแถว]",
-            "gt": "คณิตศาสตร์ไม่ต่อเนื่อง",
-            "pred": ""
-          }
-        ]
+        "error_samples": []
       },
       "name_en": {
         "label": "ชื่อวิชา (อังกฤษ) ⭐",
         "n_items": 57,
-        "cer": 1.0,
-        "wer": 1.0,
-        "exact_match_acc": 0.0,
+        "cer": 0.0,
+        "wer": 0.0,
+        "exact_match_acc": 1.0,
         "n_sub": 0,
-        "n_del": 1699,
+        "n_del": 0,
         "n_ins": 0,
-        "n_missing": 57,
+        "n_missing": 0,
         "n_hallucinated": 0,
         "n_ref_chars": 1699,
-        "error_samples": [
-          {
-            "key": "06046442",
-            "gt": "PROJECT IN ARTIFICIAL INTELLIGENCE TECHNOLOGY 2",
-            "pred": "None"
-          },
-          {
-            "key": "06046443 หรือ 06046444",
-            "gt": "COOPERATIVE EDUCATION IN ARTIFICIAL INTELLIGIENCE TECHNOLOGY \nOVERSEA COOPERATIVE EDUCATION IN ARTIFICIAL INTELLIGIENCE TECHNOLOGY",
-            "pred": "None"
-          },
-          {
-            "key": "06016401 [ตกแถว]",
-            "gt": "MATHEMATICS FOR INFORMATION TECHNOLOGY",
-            "pred": ""
-          },
-          {
-            "key": "06046400 [ตกแถว]",
-            "gt": "CALCULUS 1",
-            "pred": ""
-          },
-          {
-            "key": "06046402 [ตกแถว]",
-            "gt": "LINEAR ALGEBRA",
-            "pred": ""
-          }
-        ]
+        "error_samples": []
       },
       "credits": {
         "label": "หน่วยกิต",
         "n_items": 57,
-        "cer": 0.962882,
+        "cer": 0.0,
         "wer": null,
-        "exact_match_acc": 0.035088,
+        "exact_match_acc": 1.0,
         "n_sub": 0,
-        "n_del": 441,
+        "n_del": 0,
         "n_ins": 0,
-        "n_missing": 55,
+        "n_missing": 0,
         "n_hallucinated": 0,
         "n_ref_chars": 458,
-        "error_samples": [
-          {
-            "key": "06016401 [ตกแถว]",
-            "gt": "3(3-0-6)",
-            "pred": ""
-          },
-          {
-            "key": "06046400 [ตกแถว]",
-            "gt": "3(3-0-6)",
-            "pred": ""
-          },
-          {
-            "key": "06046402 [ตกแถว]",
-            "gt": "3(3-0-6)",
-            "pred": ""
-          },
-          {
-            "key": "06066000 [ตกแถว]",
-            "gt": "3(3-0-6)",
-            "pred": ""
-          },
-          {
-            "key": "06066001 [ตกแถว]",
-            "gt": "3(3-0-6)",
-            "pred": ""
-          }
-        ]
+        "error_samples": []
       },
       "year_sem": {
         "label": "ปี/ภาค",
         "n_items": 57,
-        "cer": 0.964912,
+        "cer": 0.0,
         "wer": null,
-        "exact_match_acc": 0.035088,
+        "exact_match_acc": 1.0,
         "n_sub": 0,
-        "n_del": 165,
+        "n_del": 0,
         "n_ins": 0,
-        "n_missing": 55,
+        "n_missing": 0,
         "n_hallucinated": 0,
         "n_ref_chars": 171,
-        "error_samples": [
-          {
-            "key": "06016401 [ตกแถว]",
-            "gt": "1/1",
-            "pred": ""
-          },
-          {
-            "key": "06046400 [ตกแถว]",
-            "gt": "1/1",
-            "pred": ""
-          },
-          {
-            "key": "06046402 [ตกแถว]",
-            "gt": "1/1",
-            "pred": ""
-          },
-          {
-            "key": "06066000 [ตกแถว]",
-            "gt": "1/1",
-            "pred": ""
-          },
-          {
-            "key": "06066001 [ตกแถว]",
-            "gt": "1/1",
-            "pred": ""
-          }
-        ]
+        "error_samples": []
       },
       "category": {
         "label": "หมวดวิชา",
         "n_items": 57,
-        "cer": 1.0,
+        "cer": 0.0,
         "wer": null,
-        "exact_match_acc": 0.0,
+        "exact_match_acc": 1.0,
         "n_sub": 0,
-        "n_del": 805,
+        "n_del": 0,
         "n_ins": 0,
-        "n_missing": 57,
+        "n_missing": 0,
         "n_hallucinated": 0,
         "n_ref_chars": 805,
-        "error_samples": [
-          {
-            "key": "06046442",
-            "gt": "หมวดวิชาเฉพาะ",
-            "pred": "None"
-          },
-          {
-            "key": "06046443 หรือ 06046444",
-            "gt": "หมวดวิชาเฉพาะ",
-            "pred": "None"
-          },
-          {
-            "key": "06016401 [ตกแถว]",
-            "gt": "หมวดวิชาเฉพาะ",
-            "pred": ""
-          },
-          {
-            "key": "06046400 [ตกแถว]",
-            "gt": "หมวดวิชาเฉพาะ",
-            "pred": ""
-          },
-          {
-            "key": "06046402 [ตกแถว]",
-            "gt": "หมวดวิชาเฉพาะ",
-            "pred": ""
-          }
-        ]
+        "error_samples": []
       },
       "ctype": {
         "label": "บังคับ/เลือก",
         "n_items": 57,
-        "cer": 1.0,
-        "wer": null,
-        "exact_match_acc": 0.0,
-        "n_sub": 0,
-        "n_del": 319,
-        "n_ins": 0,
-        "n_missing": 57,
-        "n_hallucinated": 0,
-        "n_ref_chars": 319,
-        "error_samples": [
-          {
-            "key": "06046442",
-            "gt": "บังคับ",
-            "pred": "None"
-          },
-          {
-            "key": "06046443 หรือ 06046444",
-            "gt": "บังคับ",
-            "pred": "None"
-          },
-          {
-            "key": "06016401 [ตกแถว]",
-            "gt": "บังคับ",
-            "pred": ""
-          },
-          {
-            "key": "06046400 [ตกแถว]",
-            "gt": "บังคับ",
-            "pred": ""
-          },
-          {
-            "key": "06046402 [ตกแถว]",
-            "gt": "บังคับ",
-            "pred": ""
-          }
-        ]
-      },
-      "prereq": {
-        "label": "วิชาบังคับก่อน",
-        "n_items": 2,
         "cer": 0.0,
         "wer": null,
         "exact_match_acc": 1.0,
@@ -293,12 +97,26 @@
         "n_ins": 0,
         "n_missing": 0,
         "n_hallucinated": 0,
-        "n_ref_chars": 10,
+        "n_ref_chars": 319,
+        "error_samples": []
+      },
+      "prereq": {
+        "label": "วิชาบังคับก่อน",
+        "n_items": 57,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 303,
         "error_samples": []
       },
       "flexible": {
         "label": "ปี/ภาคยืดหยุ่น",
-        "n_items": 2,
+        "n_items": 57,
         "cer": 0.0,
         "wer": null,
         "exact_match_acc": 1.0,
@@ -307,63 +125,49 @@
         "n_ins": 0,
         "n_missing": 0,
         "n_hallucinated": 0,
-        "n_ref_chars": 0,
+        "n_ref_chars": 112,
         "error_samples": []
       }
     },
-    "overall_micro_cer": 0.977137,
+    "overall_micro_cer": 0.0,
     "alignment": {
-      "matched": 2,
-      "missed": 55,
-      "spurious": 4,
-      "precision": 0.3333,
-      "recall": 0.0351,
-      "f1": 0.0635,
+      "matched": 57,
+      "missed": 0,
+      "spurious": 1,
+      "precision": 0.9828,
+      "recall": 1.0,
+      "f1": 0.9913,
       "gt_total": 57,
-      "pred_total": 6,
-      "missed_codes": [
-        "06016401",
-        "06046400",
-        "06046402",
-        "06066000",
-        "06066001",
-        "06066303",
-        "90641008",
-        "06046401",
-        "06046403",
-        "06066301",
-        "06046404",
-        "90641007",
-        "90641004",
-        "9064xxxx",
-        "06066300",
-        "06046405",
-        "06046406",
-        "06046409",
-        "06046413",
-        "90641009"
-      ],
+      "pred_total": 58,
+      "missed_codes": [],
       "spurious_codes": [
-        "9064xxxx",
-        "9064xxxx",
-        "xxxxxxxxxxx",
-        "06046443 หรือ 06046444"
+        "หมายเหตุ: คอลัมน์ \"ตัวเลือกปี/เทอม (flexible)\" กรอกเฉพาะแถวที่ ปี=0 และ เทอม=0 เท่านั้น (เซลล์จะเปลี่ยนเป็นสีเหลืองอัตโนมัติ) — ใส่เป็น \"ปี/เทอม\" คั่นด้วยจุลภาค เช่น \"3/2, 4/1, 4/2\""
       ]
     },
     "internal_check": {
       "ok": false,
-      "n_courses": 6,
+      "n_courses": 58,
       "n_duplicate_keys": 0,
-      "credits_by_term": {},
-      "total_credits_fixed_terms": 0,
+      "credits_by_term": {
+        "1/1": 18,
+        "1/2": 19,
+        "2/1": 18,
+        "2/2": 19,
+        "3/1": 18,
+        "3/2": 13,
+        "4/1": 12,
+        "4/2": 6
+      },
+      "total_credits_fixed_terms": 123,
       "issues": [
-        "หน่วยกิตผิดรูปแบบ: 9064xxxx -> '3 (x-x-x)'",
-        "9064xxxx: ปี/ภาค = 0 แต่ไม่ได้ระบุ flexible_year_semester",
-        "หน่วยกิตผิดรูปแบบ: 9064xxxx -> '3 (x-x-x)'",
-        "9064xxxx: ปี/ภาค = 0 แต่ไม่ได้ระบุ flexible_year_semester",
-        "รหัสวิชาผิดรูปแบบ: 'xxxxxxxxxxx'",
-        "หน่วยกิตผิดรูปแบบ: xxxxxxxxxxx -> '3 (x-x-x)'",
-        "xxxxxxxxxxx: ปี/ภาค = 0 แต่ไม่ได้ระบุ flexible_year_semester"
+        "หน่วยกิตผิดรูปแบบ: 9064xxxx -> '3(x-x-x)'",
+        "หน่วยกิตผิดรูปแบบ: xxxxxxxx -> '3(x-x-x)'",
+        "category ไม่ถูกต้อง: xxxxxxxx -> 'หมวดวิชาเสรี'",
+        "หน่วยกิตผิดรูปแบบ: 9064xxxx -> '3(x-x-x)'",
+        "หน่วยกิตผิดรูปแบบ: 90644xxx -> '3(x-x-x)'",
+        "หน่วยกิตผิดรูปแบบ: xxxxxxxx -> '3(x-x-x)'",
+        "category ไม่ถูกต้อง: xxxxxxxx -> 'หมวดวิชาเสรี'",
+        "รหัสวิชาผิดรูปแบบ: 'หมายเหตุ: คอลัมน์ \"ตัวเลือกปี/เทอม (flexible)\" กรอกเฉพาะแถวที่ ปี=0 และ เทอม=0 เท่านั้น (เซลล์จะเปลี่ยนเป็นสีเหลืองอัตโนมัติ) — ใส่เป็น \"ปี/เทอม\" คั่นด้วยจุลภาค เช่น \"3/2, 4/1, 4/2\"'"
       ]
     }
   }

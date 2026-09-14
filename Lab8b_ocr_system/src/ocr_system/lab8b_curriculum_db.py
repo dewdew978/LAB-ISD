@@ -1002,9 +1002,9 @@ SQL_PROMPT = """คุณคือผู้ช่วยแปลงคำถา�
 {ddl}
 
 หมายเหตุเกี่ยวกับหลักสูตรในฐานข้อมูล:
-- ในฐานข้อมูลอาจมีข้อมูลของหลักสูตร DSBA, IT, AIT
+- ในฐานข้อมูลอาจมีข้อมูลของหลักสูตร DSBA, IT, AIT, BIT
 - ตาราง program และ views (v_plan, v_semester_credits) มีคอลัมน์ program_id
-- หากคำถามระบุชื่อหลักสูตร (เช่น IT, AIT, DSBA) ให้กรองเงื่อนไข program_id เสมอ เช่น program_id LIKE '%IT%' หรือ program_id LIKE '%AIT%'
+- หากคำถามระบุชื่อหลักสูตร (เช่น IT, AIT, DSBA, BIT) ให้กรองเงื่อนไข program_id เสมอ เช่น program_id LIKE '%IT%' หรือ program_id LIKE '%BIT%'
 
 ตัวอย่าง
 คำถาม: ปี 2 เทอม 1 เรียนกี่หน่วยกิต
@@ -1022,8 +1022,17 @@ SQL: SELECT total_credits FROM program WHERE program_id LIKE '%AIT%' OR name_th 
 คำถาม: หลักสูตร DSBA มีกี่หน่วยกิต
 SQL: SELECT total_credits FROM program WHERE program_id LIKE '%DSBA%' OR name_th LIKE '%ข้อมูล%' LIMIT 1
 
+คำถาม: หลักสูตร BIT มีกี่หน่วยกิต
+SQL: SELECT total_credits FROM program WHERE program_id LIKE '%BIT%' OR name_th LIKE '%บริหารธุรกิจ%' LIMIT 1
+
 คำถาม: หลักสูตร IT ปี 1 เทอม 1 เรียนกี่หน่วยกิต
 SQL: SELECT credits FROM v_semester_credits WHERE program_id LIKE '%IT%' AND year=1 AND semester=1 LIMIT 1
+
+คำถาม: วิชา 06036100 มีกี่หน่วยกิต
+SQL: SELECT credits FROM course WHERE code = '06036100' LIMIT 1
+
+คำถาม: วิชา 06036100 ในหลักสูตร BIT มีกี่หน่วยกิต
+SQL: SELECT credits FROM course WHERE code = '06036100' LIMIT 1
 
 คำถาม: วิชาไหนบ้างที่ต้องเรียน 06026240 มาก่อน
 SQL: SELECT code FROM prerequisite WHERE requires='06026240' AND kind='pre'
@@ -1036,6 +1045,7 @@ SQL: SELECT requires FROM prerequisite WHERE code='06026215' AND kind='pre'
 - ห้ามใช้ INSERT UPDATE DELETE DROP หรือคำสั่งที่แก้ไขข้อมูล
 - ถามว่าภาคเรียนไหนมีกี่หน่วยกิต ให้ใช้ v_semester_credits เสมอ
   ห้ามใช้ SUM(credits) จาก v_plan เพราะจะนับวิชาเลือกซ้ำ
+- ถามว่าวิชามีกี่หน่วยกิต ให้ใช้ course หรือ v_plan จากรหัสวิชา code (ห้ามใช้ v_semester_credits)
 - ถามว่าเรียนวิชาอะไรบ้าง ให้ใช้ v_plan เพราะมีชื่อวิชาอยู่แล้ว
 - หากในคำถามระบุชื่อหลักสูตร ให้เพิ่มเงื่อนไขระบุ program_id ใน WHERE เสมอ
 - ตอบเป็น SQL ล้วน ไม่ต้องมีคำอธิบายและไม่ต้องมี markdown fence

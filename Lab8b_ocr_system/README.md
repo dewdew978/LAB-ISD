@@ -142,6 +142,27 @@
 
 ---
 
+## การประเมินผลการสกัดแผนการศึกษา Lab 7B ทุกหลักสูตร (Lab 7B Multi-Curriculum Benchmark)
+
+ระบบได้ทำการสกัดข้อมูลแผนการศึกษาและประเมินผลผ่านตัวชี้วัดความถูกต้อง (Precision, Recall, F1-Score, Exact Match, CER, WER) ครบถ้วนทั้ง **4 หลักสูตร**:
+
+| หลักสูตร (Curriculum) | จำนวนวิชาใน Ground Truth | สกัดตรง (Matched) | ตกแถว (Missed) | Precision | Recall | F1-Score |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **DSBA** (Data Science and Business Analytics) | 90 | 90 | 0 | 1.0000 | 0.9890 | 0.9945 |
+| **IT** (Information Technology) | 106 | 106 | 0 | 1.0000 | 0.9907 | 0.9953 |
+| **AIT** (Artificial Intelligence Technology) | 57 | 57 | 0 | 1.0000 | 0.9828 | 0.9913 |
+| **BIT** (Business Information Technology) | 63 | 63 | 0 | 1.0000 | 1.0000 | 1.0000 |
+| **ภาพรวมทุกหลักสูตร (Combined Overall)** | **316** | **316** | **0** | **1.0000** | **0.9906** | **0.9953** |
+
+### ไฟล์ผลการทดสอบ Lab 7B แต่ละหลักสูตร:
+- **DSBA**: [`work/lab7b_run/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run/) และ [`work/lab7b_run_DSBA/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run_DSBA/)
+- **IT**: [`work/lab7b_run_IT/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run_IT/)
+- **AIT**: [`work/lab7b_run_AIT/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run_AIT/)
+- **BIT**: [`work/lab7b_run_BIT/`](file:///C:/Users/thewh/Downloads/LAB-ISD/Lab8b_ocr_system/work/lab7b_run_BIT/)
+แต่ละโฟลเดอร์ประกอบด้วย `pred_vlm.json`, `intermediate_vlm.md`, `evaluation.json`, และ `comparison.csv`
+
+---
+
 ## โครงสร้างโฟลเดอร์ (Directory Structure)
 
 ```text
@@ -156,6 +177,10 @@ Lab8b_ocr_system/
 │   │   ├── DSBA/DSBA_academic_plan_coop.json
 │   │   └── BIT/BIT_academic_plan_coop.json
 │   ├── ground_truth_C/                # ข้อมูลเฉลยหลักสูตร (DSBA, IT, AIT, BIT)
+│   ├── input_C/                       # ภาพหน้าแผนการศึกษา DSBA
+│   ├── input_AIT/                     # ภาพหน้าแผนการศึกษา AIT
+│   ├── input_IT/                      # ภาพหน้าแผนการศึกษา IT
+│   ├── input_BIT/                     # ภาพหน้าแผนการศึกษา BIT
 │   ├── gold_questions_DSBA.json       # ชุดคำถามทองคำ DSBA
 │   ├── gold_questions_IT.json         # ชุดคำถามทองคำ IT
 │   ├── gold_questions_AIT.json        # ชุดคำถามทองคำ AIT
@@ -167,8 +192,10 @@ Lab8b_ocr_system/
 │       ├── lab8b_curriculum_db.py     # สคริปต์จัดการฐานข้อมูลและ Text-to-SQL
 │       └── schemas.py                 # Data classes สำหรับผลลัพธ์ OCR
 └── work/
-    ├── lab7b_run/
-    │   └── pred_vlm.json              # ผลการสกัดข้อมูลหลักสูตร DSBA
+    ├── lab7b_run_DSBA/                # ผลการสกัดและประเมิน Lab 7B (DSBA)
+    ├── lab7b_run_IT/                  # ผลการสกัดและประเมิน Lab 7B (IT)
+    ├── lab7b_run_AIT/                 # ผลการสกัดและประเมิน Lab 7B (AIT)
+    ├── lab7b_run_BIT/                 # ผลการสกัดและประเมิน Lab 7B (BIT)
     └── lab8b_run/
         ├── curriculum.db              # ฐานข้อมูล SQLite รวม 4 หลักสูตร (DSBA, IT, AIT, BIT)
         ├── curriculum_DSBA.db         # ฐานข้อมูลเฉพาะหลักสูตร DSBA

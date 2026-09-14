@@ -1,0 +1,171 @@
+{
+  "vlm": {
+    "tokenizer": "pythainlp/newmm",
+    "attributes": {
+      "code": {
+        "label": "รหัสวิชา",
+        "n_items": 106,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 860,
+        "error_samples": []
+      },
+      "name_th": {
+        "label": "ชื่อวิชา (ไทย) ⭐",
+        "n_items": 106,
+        "cer": 0.0,
+        "wer": 0.0,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 3086,
+        "error_samples": []
+      },
+      "name_en": {
+        "label": "ชื่อวิชา (อังกฤษ) ⭐",
+        "n_items": 106,
+        "cer": 0.0,
+        "wer": 0.0,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 2995,
+        "error_samples": []
+      },
+      "credits": {
+        "label": "หน่วยกิต",
+        "n_items": 106,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 873,
+        "error_samples": []
+      },
+      "year_sem": {
+        "label": "ปี/ภาค",
+        "n_items": 106,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 318,
+        "error_samples": []
+      },
+      "category": {
+        "label": "หมวดวิชา",
+        "n_items": 106,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 1452,
+        "error_samples": []
+      },
+      "ctype": {
+        "label": "บังคับ/เลือก",
+        "n_items": 106,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 577,
+        "error_samples": []
+      },
+      "prereq": {
+        "label": "วิชาบังคับก่อน",
+        "n_items": 106,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 578,
+        "error_samples": []
+      },
+      "flexible": {
+        "label": "ปี/ภาคยืดหยุ่น",
+        "n_items": 106,
+        "cer": 0.0,
+        "wer": null,
+        "exact_match_acc": 1.0,
+        "n_sub": 0,
+        "n_del": 0,
+        "n_ins": 0,
+        "n_missing": 0,
+        "n_hallucinated": 0,
+        "n_ref_chars": 159,
+        "error_samples": []
+      }
+    },
+    "overall_micro_cer": 0.0,
+    "alignment": {
+      "matched": 106,
+      "missed": 0,
+      "spurious": 1,
+      "precision": 0.9907,
+      "recall": 1.0,
+      "f1": 0.9953,
+      "gt_total": 106,
+      "pred_total": 107,
+      "missed_codes": [],
+      "spurious_codes": [
+        "หมายเหตุ: คอลัมน์ \"ตัวเลือกปี/เทอม (flexible)\" กรอกเฉพาะแถวที่ ปี=0 และ เทอม=0 เท่านั้น (เซลล์จะเปลี่ยนเป็นสีเหลืองอัตโนมัติ) — ใส่เป็น \"ปี/เทอม\" คั่นด้วยจุลภาค เช่น \"3/2, 4/1, 4/2\""
+      ]
+    },
+    "internal_check": {
+      "ok": false,
+      "n_courses": 107,
+      "n_duplicate_keys": 1,
+      "credits_by_term": {
+        "1/1": 18,
+        "1/2": 18,
+        "2/1": 18,
+        "2/2": 30,
+        "3/1": 36,
+        "3/2": 6,
+        "4/1": 18,
+        "4/2": 15
+      },
+      "total_credits_fixed_terms": 159,
+      "issues": [
+        "หน่วยกิตผิดรูปแบบ: xxxxxxxx -> '3(x-x-x)'",
+        "หน่วยกิตผิดรูปแบบ: xxxxxxxx -> '3(x-x-x)'",
+        "รหัสวิชาผิดรูปแบบ: 'หมายเหตุ: คอลัมน์ \"ตัวเลือกปี/เทอม (flexible)\" กรอกเฉพาะแถวที่ ปี=0 และ เทอม=0 เท่านั้น (เซลล์จะเปลี่ยนเป็นสีเหลืองอัตโนมัติ) — ใส่เป็น \"ปี/เทอม\" คั่นด้วยจุลภาค เช่น \"3/2, 4/1, 4/2\"'",
+        "ภาค 2/2 มีถึง 30 หน่วยกิต — น่าจะมีวิชาซ้ำ",
+        "ภาค 3/1 มีถึง 36 หน่วยกิต — น่าจะมีวิชาซ้ำ"
+      ]
+    }
+  }
+}
