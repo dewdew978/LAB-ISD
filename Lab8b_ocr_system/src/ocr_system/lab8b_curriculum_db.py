@@ -41,6 +41,13 @@ import time
 from pathlib import Path
 from typing import Any
 
+if sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
 # ═══════════════════════════════════════════════════════════════════════
 #  ค่าคงที่
 # ═══════════════════════════════════════════════════════════════════════
@@ -1608,7 +1615,7 @@ def cmd_selftest(args=None) -> bool:
     db.unlink(missing_ok=True)
 
     print("=" * 68)
-    print(f"  ผ่าน {passed} · ไม่ผ่าน {failed}")
+    print(f"  ผ่าน {passed} / ไม่ผ่าน {failed}")
     print("=" * 68)
     return failed == 0
 
