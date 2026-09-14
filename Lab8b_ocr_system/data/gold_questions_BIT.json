@@ -1,0 +1,107 @@
+[
+  {
+    "question": "หลักสูตร BIT มีทั้งหมดกี่หน่วยกิต",
+    "expect": {
+      "type": "value",
+      "value": 126
+    }
+  },
+  {
+    "question": "หลักสูตร BIT ใช้เวลาเรียนกี่ปี",
+    "expect": {
+      "type": "value",
+      "value": 4
+    }
+  },
+  {
+    "question": "วิชา 06036100 ในหลักสูตร BIT มีกี่หน่วยกิต",
+    "expect": {
+      "type": "value",
+      "value": 3
+    }
+  },
+  {
+    "question": "วิชา 06036100 ในหลักสูตร BIT เรียนชั้นปีที่เท่าไร",
+    "expect": {
+      "type": "value",
+      "value": 1
+    }
+  },
+  {
+    "question": "วิชา 06036100 ในหลักสูตร BIT เรียนภาคการศึกษาใด",
+    "expect": {
+      "type": "value",
+      "value": 1
+    }
+  },
+  {
+    "question": "วิชา 06036101 มีกี่หน่วยกิต",
+    "expect": {
+      "type": "value",
+      "value": 3
+    }
+  },
+  {
+    "question": "วิชา 06036101 เรียนชั้นปีที่เท่าไร",
+    "expect": {
+      "type": "value",
+      "value": 1
+    }
+  },
+  {
+    "question": "วิชา 06036101 เรียนภาคการศึกษาใด",
+    "expect": {
+      "type": "value",
+      "value": 1
+    }
+  },
+  {
+    "question": "วิชา 06036102 มีกี่หน่วยกิต",
+    "expect": {
+      "type": "value",
+      "value": 3
+    }
+  },
+  {
+    "question": "วิชา 06036102 เรียนภาคการศึกษาใด",
+    "expect": {
+      "type": "value",
+      "value": 2
+    }
+  },
+  {
+    "question": "วิชา 06036108 อยู่ชั้นปีที่เท่าไร",
+    "expect": {
+      "type": "value",
+      "value": 2
+    }
+  },
+  {
+    "question": "วิชา 06036115 อยู่ชั้นปีที่เท่าไร",
+    "expect": {
+      "type": "value",
+      "value": 4
+    }
+  },
+  {
+    "question": "วิชา 06036100 มีชั่วโมงปฏิบัติการกี่ชั่วโมง",
+    "expect": {
+      "type": "value",
+      "value": 2
+    }
+  },
+  {
+    "question": "วิชา 06036999 ชื่ออะไร",
+    "expect": {
+      "type": "none",
+      "value": null
+    }
+  },
+  {
+    "question": "ปี 7 เทอม 1 ในหลักสูตร BIT เรียนวิชาอะไรบ้าง",
+    "expect": {
+      "type": "none",
+      "value": null
+    }
+  }
+]

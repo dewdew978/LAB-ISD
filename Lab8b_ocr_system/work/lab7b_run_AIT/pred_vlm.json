@@ -1,0 +1,70 @@
+{
+  "program": null,
+  "plan": null,
+  "courses": [
+    {
+      "code": "06046442",
+      "name_th": "โครงงานเทคโนโลยีปัญญาประดิษฐ์ 2",
+      "credits": "3 (0-9-0)",
+      "year": 4,
+      "semester": 1,
+      "prerequisite": "ไม่มี",
+      "note": "บังคับ"
+    },
+    {
+      "code": "9064xxxx",
+      "name_th": "วิชาเลือกหมวดวิชาศึกษาทั่วไป",
+      "credits": "3 (x-x-x)",
+      "year": 0,
+      "semester": 0,
+      "prerequisite": "ไม่มี",
+      "note": "เลือก"
+    },
+    {
+      "code": "9064xxxx",
+      "name_th": "วิชาเลือกด้านภาษาและการสื่อสาร",
+      "credits": "3 (x-x-x)",
+      "year": 0,
+      "semester": 0,
+      "prerequisite": "ไม่มี",
+      "note": "เลือก"
+    },
+    {
+      "code": "xxxxxxxxxxx",
+      "name_th": "วิชาเลือกเสรี 2",
+      "credits": "3 (x-x-x)",
+      "year": 0,
+      "semester": 0,
+      "prerequisite": "ไม่มี",
+      "note": "เลือก"
+    },
+    {
+      "code": "06046443 หรือ 06046444",
+      "name_th": "สหกิจศึกษาทางเทคโนโลยีปัญญาประดิษฐ์",
+      "credits": "6 (0-45-0)",
+      "year": 4,
+      "semester": 2,
+      "prerequisite": "ไม่มี",
+      "note": "สหกิจศึกษา"
+    },
+    {
+      "code": "06046443 หรือ 06046444",
+      "name_th": "สหกิจศึกษาต่างประเทศทางเทคโนโลยีปัญญาประดิษฐ์",
+      "credits": "6 (0-45-0)",
+      "year": 4,
+      "semester": 2,
+      "prerequisite": "ไม่มี",
+      "note": "สหกิจศึกษา"
+    }
+  ],
+  "_meta": {
+    "pipeline": "vlm",
+    "elapsed_sec": 1014.1,
+    "models": {
+      "ocr": "scb10x/typhoon-ocr1.5-3b",
+      "text": "qwen3:4b"
+    },
+    "dpi": 150,
+    "pages_per_chunk": 3
+  }
+}

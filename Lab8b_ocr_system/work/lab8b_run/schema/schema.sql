@@ -46,7 +46,7 @@ CREATE INDEX IF NOT EXISTS ix_plan_code ON plan_item(code);
 -- แทนที่ LLM จะต้อง JOIN เองทุกครั้ง เราเตรียมตารางแบนไว้ให้
 -- นี่คือเหตุผลที่ VIEW มีอยู่ในโลก: ซ่อนความซับซ้อนของการ normalize
 CREATE VIEW IF NOT EXISTS v_plan AS
-SELECT p.id, p.year, p.semester, p.code, c.name_th, c.name_en,
+SELECT p.id, p.program_id, p.year, p.semester, p.code, c.name_th, c.name_en,
        p.credits, p.alt_group, p.note
 FROM plan_item p
 LEFT JOIN course c ON c.code = p.code;
@@ -64,12 +64,12 @@ LEFT JOIN course c ON c.code = p.code;
 -- แล้ว LLM แค่ SELECT ธรรมดา ไม่มีโอกาสทำผิดเลย
 -- หลักการ: อะไรที่ต้อง "ถูกเสมอ" ให้เขียนเป็นโค้ด ไม่ใช่เขียนเป็นคำสั่งให้ AI
 CREATE VIEW IF NOT EXISTS v_semester_credits AS
-SELECT year, semester, SUM(credits) AS credits, COUNT(*) AS n_courses
+SELECT program_id, year, semester, SUM(credits) AS credits, COUNT(*) AS n_courses
 FROM (
-    SELECT year, semester,
+    SELECT program_id, year, semester,
            COALESCE(alt_group, 'x' || id) AS grp,
            MIN(credits) AS credits
     FROM plan_item
-    GROUP BY year, semester, COALESCE(alt_group, 'x' || id)
+    GROUP BY program_id, year, semester, COALESCE(alt_group, 'x' || id)
 )
-GROUP BY year, semester;
+GROUP BY program_id, year, semester;

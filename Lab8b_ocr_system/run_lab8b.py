@@ -1,4 +1,7 @@
-"""Run the Lab 7B -> Lab 8B workflow on Windows, macOS, or Linux."""
+"""Run the Lab 7B -> Lab 8B workflow on Windows, macOS, or Linux.
+
+Supports multiple curriculums: DSBA, IT, AIT, or all combined.
+"""
 
 import argparse
 import json
@@ -15,14 +18,56 @@ LAB8 = ROOT / "src" / "ocr_system" / "lab8b_curriculum_db.py"
 LAB7_OUT = ROOT / "work" / "lab7b_run"
 LAB8_OUT = ROOT / "work" / "lab8b_run"
 
+PROGRAM_CONFIGS = {
+    "DSBA": {
+        "program_id": "DSBA-coop",
+        "program_name": "วิทยาการข้อมูลและการวิเคราะห์เชิงธุรกิจ (สหกิจศึกษา)",
+        "name_en": "Data Science and Business Analytics (DSBA)",
+        "total_credits": 135,
+        "years": 4,
+        "input_gt": ROOT / "data" / "ground_truth_C" / "DSBA_academic_plan_coop.json",
+        "gold_q": ROOT / "data" / "gold_questions_DSBA.json",
+    },
+    "IT": {
+        "program_id": "IT-coop",
+        "program_name": "เทคโนโลยีสารสนเทศ (สหกิจศึกษา)",
+        "name_en": "Information Technology (IT)",
+        "total_credits": 129,
+        "years": 4,
+        "input_gt": ROOT / "data" / "ground_truth_C" / "IT_academic_plan_coop.json",
+        "gold_q": ROOT / "data" / "gold_questions_IT.json",
+    },
+    "AIT": {
+        "program_id": "AIT",
+        "program_name": "เทคโนโลยีปัญญาประดิษฐ์",
+        "name_en": "Artificial Intelligence Technology (AIT)",
+        "total_credits": 120,
+        "years": 4,
+        "input_gt": ROOT / "data" / "ground_truth_C" / "AIT_academic_plan.json",
+        "gold_q": ROOT / "data" / "gold_questions_AIT.json",
+    },
+    "BIT": {
+        "program_id": "BIT-coop",
+        "program_name": "เทคโนโลยีสารสนเทศทางธุรกิจ (สหกิจศึกษา)",
+        "name_en": "Business Information Technology (BIT)",
+        "total_credits": 126,
+        "years": 4,
+        "input_gt": ROOT / "data" / "ground_truth_C" / "BIT_academic_plan_coop.json",
+        "gold_q": ROOT / "data" / "gold_questions_BIT.json",
+    },
+}
+
 
 def run(*args: object) -> None:
     subprocess.run([sys.executable, *(str(x) for x in args)], cwd=ROOT, check=True)
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--skip-lab7", action="store_true")
+    parser = argparse.ArgumentParser(description="Run Lab 8B multi-curriculum workflow")
+    parser.add_argument("--skip-lab7", action="store_true", help="ข้ามขั้นตอน Lab 7B")
+    parser.add_argument("--program", choices=["all", "DSBA", "IT", "AIT", "BIT"], default="all",
+                        help="เลือกหลักสูตรที่ต้องการประมวลผล (all, DSBA, IT, AIT, BIT)")
+    parser.add_argument("--skip-eval", action="store_true", help="ข้ามขั้นตอน LLM evaluation")
     args = parser.parse_args()
 
     os.environ.update({
@@ -36,39 +81,88 @@ def main() -> None:
     LAB7_OUT.mkdir(parents=True, exist_ok=True)
     LAB8_OUT.mkdir(parents=True, exist_ok=True)
 
-    if not args.skip_lab7:
+    # 1) สร้าง Schema DDL & JSON Schema
+    run(LAB8, "schema", "-o", LAB8_OUT / "schema")
+
+    # 2) รัน Lab 7B หากต้องการ (สำหรับ DSBA ที่มีภาพอินพุต)
+    if not args.skip_lab7 and (args.program in ("all", "DSBA")):
         run(LAB7, "-i", "data/input_C",
             "-g", "data/ground_truth_C/DSBA_academic_plan_coop.json",
             "-p", "vlm", "-o", LAB7_OUT)
 
-    predictions = [LAB7_OUT / "pred_vlm.json", LAB7_OUT / "pred_markdown.json"]
-    prediction = next((p for p in predictions if p.exists()), None)
-    if prediction is None:
-        raise SystemExit("ไม่พบ pred_vlm.json หรือ pred_markdown.json ใน work/lab7b_run")
+    programs_to_run = list(PROGRAM_CONFIGS.keys()) if args.program == "all" else [args.program]
 
-    run(LAB8, "schema", "-o", LAB8_OUT / "schema")
-    run(LAB8, "import-lab7b", "-i", prediction,
-        "-o", LAB8_OUT / "curriculum.json",
-        "--program-id", "DSBA-coop",
-        "--program-name", "วิทยาการข้อมูลและการวิเคราะห์เชิงธุรกิจ (สหกิจศึกษา)",
-        "--total-credits", 135, "--years", 4)
-    run(LAB8, "load", "-i", LAB8_OUT / "curriculum.json",
-        "-d", LAB8_OUT / "curriculum.db", "--replace")
-    run(LAB8, "verify", "-d", LAB8_OUT / "curriculum.db",
-        "-o", LAB8_OUT / "verify.json")
+    # 3) แปลงข้อมูลแต่ละหลักสูตรเข้าสู่ JSON และสร้าง DB แยกรายหลักสูตร
+    converted_files = {}
+    for prog_key in programs_to_run:
+        cfg = PROGRAM_CONFIGS[prog_key]
+        if prog_key == "DSBA":
+            predictions = [LAB7_OUT / "pred_vlm.json", LAB7_OUT / "pred_markdown.json"]
+            pred_file = next((p for p in predictions if p.exists()), cfg["input_gt"])
+        else:
+            pred_file = cfg["input_gt"]
 
-    gold = LAB8_OUT / "gold_questions.json"
-    sample = LAB7_OUT / "gold_questions_gt.json"
-    if not gold.exists() and sample.exists():
-        shutil.copyfile(sample, gold)
-    if not gold.exists() or len(json.loads(gold.read_text(encoding="utf-8"))) < 30:
-        print(f"\nเพิ่มคำถามใน {gold} ให้ครบ 30 ข้อ แล้วรัน:")
-        print("python run_lab8b.py --skip-lab7")
-        return
+        prog_json = LAB8_OUT / f"curriculum_{prog_key}.json"
+        prog_db = LAB8_OUT / f"curriculum_{prog_key}.db"
+        prog_verify = LAB8_OUT / f"verify_{prog_key}.json"
 
-    run(LAB8, "eval", "-d", LAB8_OUT / "curriculum.db",
-        "-q", gold, "-o", LAB8_OUT / "eval_result.json")
-    print(f"\nเสร็จแล้ว: {LAB8_OUT}")
+        run(LAB8, "import-lab7b", "-i", pred_file,
+            "-o", prog_json,
+            "--program-id", cfg["program_id"],
+            "--program-name", cfg["program_name"],
+            "--name-en", cfg["name_en"],
+            "--total-credits", cfg["total_credits"],
+            "--years", cfg["years"])
+
+        run(LAB8, "load", "-i", prog_json, "-d", prog_db, "--replace")
+        run(LAB8, "verify", "-d", prog_db, "-o", prog_verify)
+
+        if cfg["gold_q"].exists():
+            shutil.copyfile(cfg["gold_q"], LAB8_OUT / f"gold_questions_{prog_key}.json")
+
+        converted_files[prog_key] = prog_json
+
+    # 4) โหลดเข้าสู่ฐานข้อมูลหลัก curriculum.db
+    main_db = LAB8_OUT / "curriculum.db"
+    main_verify = LAB8_OUT / "verify.json"
+    main_gold = LAB8_OUT / "gold_questions.json"
+
+    if args.program == "all":
+        # โหลดหลักสูตรแรกด้วย --replace และหลักสูตรถัดไปด้วย append (ไม่มี --replace)
+        first = True
+        for prog_key in programs_to_run:
+            load_args = [LAB8, "load", "-i", converted_files[prog_key], "-d", main_db]
+            if first:
+                load_args.append("--replace")
+                first = False
+            run(*load_args)
+
+        # ตั้งค่า curriculum.json เป็นหลักสูตร DSBA หรือสร้างภาพรวม
+        shutil.copyfile(converted_files["DSBA"], LAB8_OUT / "curriculum.json")
+
+        # ตรวจสอบความถูกต้องของ curriculum.db รวม
+        run(LAB8, "verify", "-d", main_db, "-o", main_verify)
+
+        # ใช้ชุดคำถามทองคำรวม
+        comb_q = ROOT / "data" / "gold_questions_combined.json"
+        if comb_q.exists():
+            shutil.copyfile(comb_q, main_gold)
+    else:
+        prog_key = args.program
+        shutil.copyfile(converted_files[prog_key], LAB8_OUT / "curriculum.json")
+        shutil.copyfile(LAB8_OUT / f"curriculum_{prog_key}.db", main_db)
+        shutil.copyfile(LAB8_OUT / f"verify_{prog_key}.json", main_verify)
+        if (LAB8_OUT / f"gold_questions_{prog_key}.json").exists():
+            shutil.copyfile(LAB8_OUT / f"gold_questions_{prog_key}.json", main_gold)
+
+    # 5) ประเมินผลคำถามทองคำ
+    if not args.skip_eval:
+        if not main_gold.exists() or len(json.loads(main_gold.read_text(encoding="utf-8"))) < 30:
+            print(f"\nเพิ่มคำถามใน {main_gold} ให้ครบ 30 ข้อ แล้วรันใหม่")
+            return
+        run(LAB8, "eval", "-d", main_db, "-q", main_gold, "-o", LAB8_OUT / "eval_result.json")
+
+    print(f"\nเสร็จสิ้นกระบวนการ Lab 8B: {LAB8_OUT}")
 
 
 if __name__ == "__main__":

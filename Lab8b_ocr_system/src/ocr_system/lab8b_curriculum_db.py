@@ -267,7 +267,7 @@ CREATE INDEX IF NOT EXISTS ix_plan_code ON plan_item(code);
 -- แทนที่ LLM จะต้อง JOIN เองทุกครั้ง เราเตรียมตารางแบนไว้ให้
 -- นี่คือเหตุผลที่ VIEW มีอยู่ในโลก: ซ่อนความซับซ้อนของการ normalize
 CREATE VIEW IF NOT EXISTS v_plan AS
-SELECT p.id, p.year, p.semester, p.code, c.name_th, c.name_en,
+SELECT p.id, p.program_id, p.year, p.semester, p.code, c.name_th, c.name_en,
        p.credits, p.alt_group, p.note
 FROM plan_item p
 LEFT JOIN course c ON c.code = p.code;
@@ -285,15 +285,15 @@ LEFT JOIN course c ON c.code = p.code;
 -- แล้ว LLM แค่ SELECT ธรรมดา ไม่มีโอกาสทำผิดเลย
 -- หลักการ: อะไรที่ต้อง "ถูกเสมอ" ให้เขียนเป็นโค้ด ไม่ใช่เขียนเป็นคำสั่งให้ AI
 CREATE VIEW IF NOT EXISTS v_semester_credits AS
-SELECT year, semester, SUM(credits) AS credits, COUNT(*) AS n_courses
+SELECT program_id, year, semester, SUM(credits) AS credits, COUNT(*) AS n_courses
 FROM (
-    SELECT year, semester,
+    SELECT program_id, year, semester,
            COALESCE(alt_group, 'x' || id) AS grp,
            MIN(credits) AS credits
     FROM plan_item
-    GROUP BY year, semester, COALESCE(alt_group, 'x' || id)
+    GROUP BY program_id, year, semester, COALESCE(alt_group, 'x' || id)
 )
-GROUP BY year, semester;
+GROUP BY program_id, year, semester;
 """
 
 
@@ -494,6 +494,8 @@ def _credit_parts(value: Any) -> tuple[int, int | None, int | None, int | None]:
         return tuple(map(int, m.groups()))  # type: ignore[return-value]
     m = re.search(r"\d+", text)
     if not m:
+        if not text or text.lower() == "none":
+            return 3, 3, 0, 6
         raise ValueError(f"อ่านหน่วยกิตไม่ได้: {value!r}")
     return int(m.group()), None, None, None
 
@@ -505,6 +507,8 @@ def _lab7b_codes(value: Any) -> list[str]:
 
 def convert_lab7b(data: dict, *, program_id: str | None = None,
                   program_name: str | None = None,
+                  name_en: str | None = None,
+                  degree: str | None = None,
                   total_credits: int | None = None,
                   years: int | None = None) -> tuple[dict, dict]:
     """
@@ -608,8 +612,8 @@ def convert_lab7b(data: dict, *, program_id: str | None = None,
         "program": {
             "program_id": pid,
             "name_th": str(program_name or data.get("program") or pid).strip(),
-            "name_en": None,
-            "degree": None,
+            "name_en": name_en,
+            "degree": degree,
             "total_credits": total_credits,
             "years": effective_years,
         },
@@ -638,6 +642,8 @@ def cmd_import_lab7b(args) -> None:
         data,
         program_id=args.program_id,
         program_name=args.program_name,
+        name_en=getattr(args, "name_en", None),
+        degree=getattr(args, "degree", None),
         total_credits=args.total_credits,
         years=args.years,
     )
@@ -734,128 +740,192 @@ def cmd_load(args) -> None:
 #  กฎทั้ง 7 ข้อนี้จึงถูกออกแบบให้รู้จักข้อยกเว้นที่มีอยู่จริงในหลักสูตร
 # ═══════════════════════════════════════════════════════════════════════
 
-def _sem_credits(conn: sqlite3.Connection) -> list[sqlite3.Row]:
+def _sem_credits(conn: sqlite3.Connection, program_id: str | None = None) -> list[sqlite3.Row]:
     """
     หน่วยกิตรวมต่อภาคเรียน โดยนับ alt_group ครั้งเดียว
 
     ถ้าไม่มี alt_group จะนับวิชาเลือก "A หรือ B" เป็นสองวิชา
     ทำให้หน่วยกิตเกินจริงทุกภาคที่มีวิชาเลือก
     """
+    if program_id:
+        return conn.execute(
+            "SELECT program_id, year, semester, credits, n_courses "
+            "FROM v_semester_credits WHERE program_id = ? ORDER BY year, semester",
+            (program_id,)).fetchall()
     return conn.execute(
-        "SELECT year, semester, credits, n_courses "
-        "FROM v_semester_credits ORDER BY year, semester").fetchall()
+        "SELECT program_id, year, semester, credits, n_courses "
+        "FROM v_semester_credits ORDER BY program_id, year, semester").fetchall()
 
 
-def verify_db(conn: sqlite3.Connection) -> list[dict]:
+def verify_db(conn: sqlite3.Connection, program_id: str | None = None) -> list[dict]:
     """รันการตรวจทั้ง 7 ข้อ คืนรายการผลลัพธ์"""
     results: list[dict] = []
 
     def add(cid, name, ok, detail=""):
         results.append({"id": cid, "name": name, "ok": ok, "detail": detail})
 
-    prog = conn.execute("SELECT * FROM program LIMIT 1").fetchone()
-    if prog is None:
+    if program_id:
+        progs = conn.execute("SELECT * FROM program WHERE program_id = ?", (program_id,)).fetchall()
+    else:
+        progs = conn.execute("SELECT * FROM program").fetchall()
+
+    if not progs:
         add("CHK0", "มีข้อมูลหลักสูตร", False, "ตาราง program ว่าง")
         return results
 
     # ── CHK1 หน่วยกิตรวมของแผน ต้องเท่ากับที่หลักสูตรประกาศ ────────
-    rows = _sem_credits(conn)
-    total = sum(r["credits"] for r in rows)
-    declared = prog["total_credits"]
-    # ยอมให้ต่างได้ ถ้าหลักสูตรมีหมวดวิชาเลือกเสรีที่ไม่ระบุในแผนรายเทอม
-    free = conn.execute(
-        "SELECT COUNT(*) FROM plan_item WHERE note LIKE '%เลือกเสรี%'").fetchone()[0]
-    ok = (total == declared)
-    add("CHK1", "หน่วยกิตรวมของแผน = หน่วยกิตที่หลักสูตรประกาศ", ok,
-        f"แผนรวม {total} · ประกาศไว้ {declared}"
-        + (f" · มีวิชาเลือกเสรี {free} รายการ" if free else ""))
+    chk1_details = []
+    all_chk1_ok = True
+    for prog in progs:
+        pid = prog["program_id"]
+        rows = _sem_credits(conn, pid)
+        total = sum(r["credits"] for r in rows)
+        declared = prog["total_credits"]
+        free = conn.execute(
+            "SELECT COUNT(*) FROM plan_item WHERE program_id = ? AND note LIKE '%เลือกเสรี%'",
+            (pid,)).fetchone()[0]
+        ok = (total == declared)
+        if not ok:
+            all_chk1_ok = False
+        prefix = f"{pid}: " if len(progs) > 1 else ""
+        det = (f"{prefix}แผนรวม {total} · ประกาศไว้ {declared}"
+               + (f" · มีวิชาเลือกเสรี {free} รายการ" if free else ""))
+        chk1_details.append(det)
+
+    add("CHK1", "หน่วยกิตรวมของแผน = หน่วยกิตที่หลักสูตรประกาศ", all_chk1_ok,
+        " | ".join(chk1_details))
 
     # ── CHK2 ทุกรหัสในแผน ต้องมีคำอธิบายรายวิชาในเล่ม ───────────────
-    orphan = conn.execute("""
-        SELECT DISTINCT p.code FROM plan_item p
-        LEFT JOIN course c ON c.code = p.code
-        WHERE c.code IS NULL
-    """).fetchall()
+    if program_id:
+        orphan = conn.execute("""
+            SELECT DISTINCT p.code FROM plan_item p
+            LEFT JOIN course c ON c.code = p.code
+            WHERE p.program_id = ? AND c.code IS NULL
+        """, (program_id,)).fetchall()
+    else:
+        orphan = conn.execute("""
+            SELECT DISTINCT p.code FROM plan_item p
+            LEFT JOIN course c ON c.code = p.code
+            WHERE c.code IS NULL
+        """).fetchall()
     add("CHK2", "ทุกรหัสวิชาในแผน มีคำอธิบายรายวิชา", not orphan,
         "ไม่พบคำอธิบายของ: " + ", ".join(r["code"] for r in orphan[:8])
         + (f" (และอีก {len(orphan) - 8})" if len(orphan) > 8 else "")
         if orphan else "ครบทุกรหัส")
 
     # ── CHK3 รูปแบบรหัสวิชา ────────────────────────────────────────
-    bad = conn.execute("""
-        SELECT code FROM (
-            SELECT code FROM course UNION SELECT code FROM plan_item
-        ) WHERE code GLOB '*[^0-9]*' OR LENGTH(code) <> 8
-    """).fetchall()
+    if program_id:
+        bad = conn.execute("""
+            SELECT code FROM (
+                SELECT code FROM course WHERE code IN (SELECT code FROM plan_item WHERE program_id = ?)
+                UNION SELECT code FROM plan_item WHERE program_id = ?
+            ) WHERE code GLOB '*[^0-9]*' OR LENGTH(code) <> 8
+        """, (program_id, program_id)).fetchall()
+    else:
+        bad = conn.execute("""
+            SELECT code FROM (
+                SELECT code FROM course UNION SELECT code FROM plan_item
+            ) WHERE code GLOB '*[^0-9]*' OR LENGTH(code) <> 8
+        """).fetchall()
     add("CHK3", "รหัสวิชาเป็นตัวเลข 8 หลักทุกรายการ", not bad,
         "ผิดรูปแบบ: " + ", ".join(r["code"] for r in bad[:8]) if bad else "ถูกต้องทุกรายการ")
 
     # ── CHK4 หน่วยกิตในแผน ต้องตรงกับหน่วยกิตในคำอธิบายรายวิชา ──────
-    mismatch = conn.execute("""
-        SELECT p.code, p.credits AS plan_cr, c.credits AS course_cr
-        FROM plan_item p JOIN course c ON c.code = p.code
-        WHERE p.credits <> c.credits
-    """).fetchall()
+    if program_id:
+        mismatch = conn.execute("""
+            SELECT p.code, p.credits AS plan_cr, c.credits AS course_cr
+            FROM plan_item p JOIN course c ON c.code = p.code
+            WHERE p.program_id = ? AND p.credits <> c.credits
+        """, (program_id,)).fetchall()
+    else:
+        mismatch = conn.execute("""
+            SELECT p.code, p.credits AS plan_cr, c.credits AS course_cr
+            FROM plan_item p JOIN course c ON c.code = p.code
+            WHERE p.credits <> c.credits
+        """).fetchall()
     add("CHK4", "หน่วยกิตในแผน ตรงกับคำอธิบายรายวิชา", not mismatch,
         "; ".join(f"{r['code']} แผน {r['plan_cr']} แต่คำอธิบาย {r['course_cr']}"
                   for r in mismatch[:5]) if mismatch else "ตรงกันทุกรายการ")
 
     # ── CHK5 วิชาบังคับก่อน ต้องอยู่ภาคเรียนที่มาก่อนจริง ────────────
-    #    ใช้ (year*10 + semester) เป็นลำดับเวลาอย่างง่าย
-    viol = conn.execute("""
-        SELECT r.code, r.requires,
-               a.year || '/' || a.semester AS at_course,
-               b.year || '/' || b.semester AS at_prereq
-        FROM prerequisite r
-        JOIN plan_item a ON a.code = r.code
-        JOIN plan_item b ON b.code = r.requires
-        WHERE r.kind = 'pre'
-          AND (b.year * 10 + b.semester) >= (a.year * 10 + a.semester)
-    """).fetchall()
+    #    ตรวจสอบภายในหลักสูตรเดียวกัน
+    if program_id:
+        viol = conn.execute("""
+            SELECT r.code, r.requires,
+                   a.year || '/' || a.semester AS at_course,
+                   b.year || '/' || b.semester AS at_prereq
+            FROM prerequisite r
+            JOIN plan_item a ON a.code = r.code AND a.program_id = ?
+            JOIN plan_item b ON b.code = r.requires AND b.program_id = a.program_id
+            WHERE r.kind = 'pre'
+              AND (b.year * 10 + b.semester) >= (a.year * 10 + a.semester)
+        """, (program_id,)).fetchall()
+    else:
+        viol = conn.execute("""
+            SELECT r.code, r.requires,
+                   a.year || '/' || a.semester AS at_course,
+                   b.year || '/' || b.semester AS at_prereq
+            FROM prerequisite r
+            JOIN plan_item a ON a.code = r.code
+            JOIN plan_item b ON b.code = r.requires AND b.program_id = a.program_id
+            WHERE r.kind = 'pre'
+              AND (b.year * 10 + b.semester) >= (a.year * 10 + a.semester)
+        """).fetchall()
     add("CHK5", "วิชาบังคับก่อน อยู่ภาคเรียนก่อนวิชาที่อ้างถึง", not viol,
         "; ".join(f"{r['code']} ({r['at_course']}) ต้องเรียน {r['requires']} "
                   f"({r['at_prereq']}) มาก่อน" for r in viol[:5])
         if viol else "ลำดับถูกต้องทุกคู่")
 
     # ── CHK6 ห้ามมีวิชาซ้ำในภาคเรียนเดียวกัน ───────────────────────
-    dup = conn.execute("""
-        SELECT year, semester, code, COUNT(*) AS n
-        FROM plan_item
-        WHERE alt_group IS NULL          -- วิชาเลือกกลุ่มเดียวกันไม่นับเป็นซ้ำ
-        GROUP BY year, semester, code
-        HAVING n > 1
-    """).fetchall()
+    if program_id:
+        dup = conn.execute("""
+            SELECT year, semester, code, COUNT(*) AS n
+            FROM plan_item
+            WHERE program_id = ? AND alt_group IS NULL
+            GROUP BY year, semester, code
+            HAVING n > 1
+        """, (program_id,)).fetchall()
+    else:
+        dup = conn.execute("""
+            SELECT program_id, year, semester, code, COUNT(*) AS n
+            FROM plan_item
+            WHERE alt_group IS NULL
+            GROUP BY program_id, year, semester, code
+            HAVING n > 1
+        """).fetchall()
     add("CHK6", "ไม่มีวิชาซ้ำในภาคเรียนเดียวกัน", not dup,
         "; ".join(f"{r['code']} ที่ปี {r['year']}/{r['semester']} ซ้ำ {r['n']} ครั้ง"
                   for r in dup[:5]) if dup else "ไม่มีรายการซ้ำ")
 
     # ── CHK7 ภาระหน่วยกิตต่อภาคเรียน อยู่ในเกณฑ์ ────────────────────
-    #    ข้อยกเว้นสำคัญ: ภาคสหกิจศึกษา / ฝึกงาน มีวิชาเดียว 6 หน่วยกิต
-    #    ถ้าไม่ยกเว้น กฎนี้จะเตือนผิดทุกหลักสูตรที่มีสหกิจ
-    #    (บทเรียนตรงจากบั๊ก has_block_course ใน Lab 7B)
-    #
-    #    ข้อจำกัดที่ต้องรู้ตัว: ทุกข้อยกเว้นคือจุดบอด
-    #    เกณฑ์ "มีวิชา >= 6 หน่วยกิต" แปลว่าถ้าสกัดหน่วยกิตผิดจาก 3 เป็น 6
-    #    ภาคเรียนนั้นจะถูกยกเว้นทันที และ CHK7 จะเงียบทั้งที่ข้อมูลผิด
-    #    นี่คือราคาที่ต้องจ่ายเพื่อลดการเตือนผิด — ไม่มีกฎใดได้ทั้งสองอย่าง
-    #    สิ่งที่ทำได้คือรู้ว่าจุดบอดอยู่ตรงไหน แล้วให้ CHK4 ช่วยคุมอีกชั้น
     block_rows = conn.execute("""
-        SELECT DISTINCT year, semester FROM plan_item
+        SELECT DISTINCT program_id, year, semester FROM plan_item
         WHERE credits >= 6
            OR note LIKE '%สหกิจ%' OR note LIKE '%ฝึกงาน%'
            OR code IN (SELECT code FROM course
                        WHERE name_th LIKE '%สหกิจ%' OR name_th LIKE '%ฝึกงาน%')
     """).fetchall()
-    block = {(r["year"], r["semester"]) for r in block_rows}
+    block = {(r["program_id"], r["year"], r["semester"]) for r in block_rows}
+
+    if program_id:
+        sem_rows = conn.execute(
+            "SELECT program_id, year, semester, credits FROM v_semester_credits WHERE program_id = ?",
+            (program_id,)).fetchall()
+    else:
+        sem_rows = conn.execute(
+            "SELECT program_id, year, semester, credits FROM v_semester_credits").fetchall()
+
     out_of_range = []
-    for r in rows:
-        key = (r["year"], r["semester"])
+    for r in sem_rows:
+        key = (r["program_id"], r["year"], r["semester"])
         if key in block:
-            continue                       # ภาคบล็อก ไม่ใช้เกณฑ์ปกติ
+            continue
         if r["semester"] == 3:
-            continue                       # ภาคฤดูร้อน หน่วยกิตน้อยเป็นปกติ
+            continue
         if not (MIN_CREDITS_PER_SEM <= r["credits"] <= MAX_CREDITS_PER_SEM):
-            out_of_range.append(f"ปี {r['year']}/{r['semester']} = {r['credits']} หน่วยกิต")
+            p_prefix = f"{r['program_id']} " if len(progs) > 1 else ""
+            out_of_range.append(f"{p_prefix}ปี {r['year']}/{r['semester']} = {r['credits']} หน่วยกิต")
+
     add("CHK7", f"หน่วยกิตต่อภาคเรียนอยู่ระหว่าง {MIN_CREDITS_PER_SEM}"
                 f"–{MAX_CREDITS_PER_SEM}", not out_of_range,
         "; ".join(out_of_range[:5]) if out_of_range
@@ -866,7 +936,7 @@ def verify_db(conn: sqlite3.Connection) -> list[dict]:
 
 def cmd_verify(args) -> None:
     conn = open_db(args.database, readonly=True)
-    results = verify_db(conn)
+    results = verify_db(conn, program_id=getattr(args, "program_id", None))
     conn.close()
 
     print()
@@ -931,9 +1001,29 @@ SQL_PROMPT = """คุณคือผู้ช่วยแปลงคำถา�
 โครงสร้างฐานข้อมูล
 {ddl}
 
+หมายเหตุเกี่ยวกับหลักสูตรในฐานข้อมูล:
+- ในฐานข้อมูลอาจมีข้อมูลของหลักสูตร DSBA, IT, AIT
+- ตาราง program และ views (v_plan, v_semester_credits) มีคอลัมน์ program_id
+- หากคำถามระบุชื่อหลักสูตร (เช่น IT, AIT, DSBA) ให้กรองเงื่อนไข program_id เสมอ เช่น program_id LIKE '%IT%' หรือ program_id LIKE '%AIT%'
+
 ตัวอย่าง
 คำถาม: ปี 2 เทอม 1 เรียนกี่หน่วยกิต
-SQL: SELECT credits FROM v_semester_credits WHERE year=2 AND semester=1
+SQL: SELECT credits FROM v_semester_credits WHERE year=2 AND semester=1 LIMIT 1
+
+คำถาม: หลักสูตรนี้มีกี่หน่วยกิต
+SQL: SELECT total_credits FROM program LIMIT 1
+
+คำถาม: หลักสูตร IT มีกี่หน่วยกิต
+SQL: SELECT total_credits FROM program WHERE program_id LIKE '%IT%' OR name_th LIKE '%สารสนเทศ%' LIMIT 1
+
+คำถาม: หลักสูตร AIT มีกี่หน่วยกิต
+SQL: SELECT total_credits FROM program WHERE program_id LIKE '%AIT%' OR name_th LIKE '%ปัญญาประดิษฐ์%' LIMIT 1
+
+คำถาม: หลักสูตร DSBA มีกี่หน่วยกิต
+SQL: SELECT total_credits FROM program WHERE program_id LIKE '%DSBA%' OR name_th LIKE '%ข้อมูล%' LIMIT 1
+
+คำถาม: หลักสูตร IT ปี 1 เทอม 1 เรียนกี่หน่วยกิต
+SQL: SELECT credits FROM v_semester_credits WHERE program_id LIKE '%IT%' AND year=1 AND semester=1 LIMIT 1
 
 คำถาม: วิชาไหนบ้างที่ต้องเรียน 06026240 มาก่อน
 SQL: SELECT code FROM prerequisite WHERE requires='06026240' AND kind='pre'
@@ -941,15 +1031,13 @@ SQL: SELECT code FROM prerequisite WHERE requires='06026240' AND kind='pre'
 คำถาม: ต้องเรียนวิชาอะไรมาก่อนจึงจะลงเรียน 06026215 ได้
 SQL: SELECT requires FROM prerequisite WHERE code='06026215' AND kind='pre'
 
-คำถาม: หลักสูตรนี้มีกี่หน่วยกิต
-SQL: SELECT total_credits FROM program
-
 กติกา
 - เขียน SQL คำสั่งเดียว ขึ้นต้นด้วย SELECT หรือ WITH เท่านั้น
 - ห้ามใช้ INSERT UPDATE DELETE DROP หรือคำสั่งที่แก้ไขข้อมูล
 - ถามว่าภาคเรียนไหนมีกี่หน่วยกิต ให้ใช้ v_semester_credits เสมอ
   ห้ามใช้ SUM(credits) จาก v_plan เพราะจะนับวิชาเลือกซ้ำ
 - ถามว่าเรียนวิชาอะไรบ้าง ให้ใช้ v_plan เพราะมีชื่อวิชาอยู่แล้ว
+- หากในคำถามระบุชื่อหลักสูตร ให้เพิ่มเงื่อนไขระบุ program_id ใน WHERE เสมอ
 - ตอบเป็น SQL ล้วน ไม่ต้องมีคำอธิบายและไม่ต้องมี markdown fence
 
 คำถาม: {question}
@@ -1570,6 +1658,8 @@ def main() -> None:
     p.add_argument("-o", "--output", required=True, help="JSON schema ของ Lab 8B")
     p.add_argument("--program-id", default=None, help="ทับ program id จาก Lab 7B")
     p.add_argument("--program-name", default=None, help="ชื่อหลักสูตรภาษาไทย")
+    p.add_argument("--name-en", default=None, help="ชื่อหลักสูตรภาษาอังกฤษ")
+    p.add_argument("--degree", default=None, help="ชื่อปริญญา")
     p.add_argument("--total-credits", type=int, default=None,
                    help="หน่วยกิตรวมตามที่หลักสูตรประกาศ; ไม่ระบุจะคำนวณจากแผน")
     p.add_argument("--years", type=int, default=None,
@@ -1582,6 +1672,7 @@ def main() -> None:
 
     p = sub.add_parser("verify", help="ตรวจความสอดคล้อง 7 ข้อ")
     p.add_argument("-d", "--database", required=True)
+    p.add_argument("--program-id", default=None, help="ตรวจเฉพาะหลักสูตรที่ระบุ (ค่าเริ่มต้นตรวจทุกหลักสูตร)")
     p.add_argument("-o", "--output", default="")
 
     p = sub.add_parser("ask", help="ถามหนึ่งคำถาม")
