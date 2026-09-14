@@ -14,15 +14,12 @@ LAB-ISD/
 ├── LAB6/                          # ปฏิบัติการ Lab 6: Text Processing & Classification
 ├── groupB_curriculum 2/          # ปฏิบัติการ Lab 7B: การสกัดแผนการศึกษาด้วย Local LLM (กลุ่ม B)
 ├── lab7_final/                    # ปฏิบัติการ Lab 7 Final Release
-└── Lab8b_ocr_system/              # ปฏิบัติการ Lab 8B: จากข้อความที่สกัดได้ สู่ฐานข้อมูลที่ตอบคำถามได้
-    ├── data/                      # เอกสารหลักสูตรจริง (PDF) ภาพสแกน และ Ground Truth ทุกหลักสูตร
-    │   ├── input_AIT/             # ภาพเอกสารหลักสูตร AIT
-    │   ├── input_BIT/             # ภาพเอกสารหลักสูตร BIT (จาก BIT_academic.pdf)
-    │   ├── input_C/               # ภาพเอกสารหลักสูตร DSBA
-    │   └── input_IT/              # ภาพเอกสารหลักสูตร IT
-    ├── src/                       # ซอร์สโค้ดหลักของระบบ
-    │   └── ocr_system/            # Pipeline สกัดข้อมูล (Lab 7B) และ Text-to-SQL DB (Lab 8B)
-    └── work/                      # ผลลัพธ์การประมวลผล ฐานข้อมูล และ Benchmark ครบ 4 หลักสูตร
+├── Lab8b_ocr_system/              # ปฏิบัติการ Lab 8B: จากข้อความที่สกัดได้ สู่ฐานข้อมูลที่ตอบคำถามได้
+└── LAB9/                          # ปฏิบัติการ Lab 9: การประเมินผลระบบและการตรวจจับ Overfitting
+    ├── silde/                     # สไลด์บทเรียน Chapter 9 Evaluation & Overfitting
+    ├── src/                       # โมดูลตัวชี้วัด (Confusion Matrix, Continuous, OCR, LLM, Overfitting)
+    ├── outputs/                   # รายงานผลการประเมินฉบับสมบูรณ์ (Markdown & JSON)
+    └── run_lab9.py                # สคริปต์รันประเมินผล Lab 9
 ```
 
 ---

@@ -1,0 +1,164 @@
+{
+  "lab": "Lab 9: Evaluation and Overfitting",
+  "demo_results": {
+    "classification": {
+      "scenario": "ตรวจเอกสาร 1000 หน้า (ปลอม 10 หน้า, ปกติ 990 หน้า)",
+      "model_behavior": "โมเดลทำนายว่า 'ไม่ปลอม' ทั้งหมด",
+      "confusion_matrix": {
+        "TP": 0,
+        "FP": 0,
+        "TN": 990,
+        "FN": 10
+      },
+      "metrics": {
+        "accuracy": 0.99,
+        "precision": 0.0,
+        "recall": 0.0,
+        "specificity": 1.0,
+        "f1": 0.0,
+        "mcc": 0.0
+      },
+      "insight": "แม้ Accuracy จะสูงถึง 99.0% แต่ Recall = 0.0 และ MCC = 0.0 ยืนยันว่าโมเดลไม่สามารถตรวจจับของปลอมได้เลยแม้แต่หน้าเดียว เมื่อข้อมูลไม่สมดุลเกิน 80:20 ห้ามดู Accuracy เป็นหลัก ให้ดู Recall ของ Rare Class และ MCC เสมอ"
+    },
+    "regression": {
+      "MAE": 0.8143,
+      "MSE": 3.5843,
+      "RMSE": 1.8932,
+      "MAPE(%)": 11.76,
+      "HuberLoss": 0.6493,
+      "RMSE_MAE_gap": 1.0789,
+      "diagnostics": "RMSE (1.893) ใกล้เคียงกับ MAE (0.814) แสดงว่าความคลาดเคลื่อนกระจายตัวค่อนข้างสม่ำเสมอทั่วทั้งชุดข้อมูล ไม่มี Outlier รุนแรง"
+    },
+    "ocr": {
+      "reference": "06026240 การพัฒนาระบบอัจฉริยะ 3(2-2-5)",
+      "hypothesis": "0602624O การพัฒนาระบบอัจฉริยะ 3(2-2-5)",
+      "exact_match": false,
+      "CER": 0.0263,
+      "WER": 0.3333,
+      "char_stats": {
+        "S": 1,
+        "D": 0,
+        "I": 0,
+        "N": 38
+      },
+      "word_stats": {
+        "S": 1,
+        "D": 0,
+        "I": 1,
+        "N": 6
+      },
+      "insight": "CER = 2.6% ดูดีมาก แต่ WER = 33.3% สูง เนื่องจากผิดเพียงตัวอักษรเดียวแต่ทำให้คำหรือรหัสวิชาทั้งคำถือว่าผิดทั้งหมด ในการทำงานจริงเจ้าหน้าที่ต้องตามแก้ไขทั้งหน่วย จึงเจ็บปวดระดับ WER"
+    },
+    "learning_curve": {
+      "total_epochs": 10,
+      "best_epoch": 5,
+      "min_validation_loss": 0.68,
+      "final_train_loss": 0.1,
+      "final_val_loss": 1.45,
+      "generalization_gap": 1.35,
+      "is_overfitting": true,
+      "diagnosis": "Overfitting (โมเดลเริ่มจำข้อสอบเก่าที่ Epoch 5 Val loss ดีดขึ้นแต่ Train loss ยังลง)",
+      "recommendation": "ควรใช้ Early Stopping ตัดการเทรนที่ Epoch 5 (patience=5-10) พร้อมพิจารณาเพิ่ม Data Augmentation หรือ Dropout"
+    },
+    "prescription": {
+      "condition": "Overfitting (โมเดลจำชุดฝึกมากเกินไปจนความสามารถบนชุดทดสอบลดลง)",
+      "train_score": 0.98,
+      "val_score": 0.75,
+      "generalization_gap": 0.23,
+      "prescriptions": [
+        "1. เพิ่มข้อมูลตัวอย่างจริง (Data Collection) — ได้ผลดีที่สุดเสมอ",
+        "2. Data Augmentation (หมุน, ปรับแสง, Noise สมจริง)",
+        "3. Early Stopping (หยุดฝึกที่จุด Val Loss ต่ำสุด)",
+        "4. Transfer Learning (แช่แข็งชั้นต้น ฝึกเฉพาะชั้นท้าย)",
+        "5. ลดขนาดโมเดล หรือเพิ่ม Regularization (L1/L2, Dropout 0.2-0.5)",
+        "6. ในงาน LLM: ลด Few-shot ที่เจาะจงเกินไป และเขียน Prompt ให้เป็นกฎเกณฑ์ทั่วไป",
+        "7. Ensemble (รวมผลหลายโมเดลเพื่อลดความแปรปรวน)"
+      ],
+      "warning_contraindicated": "ห้ามขยายขนาดโมเดลให้ใหญ่ขึ้น และห้ามเทรนนานขึ้นโดยไม่มี Early Stopping"
+    }
+  },
+  "project_results": {
+    "per_curriculum": {
+      "DSBA": {
+        "total_questions": 45,
+        "valid_sql_count": 45,
+        "valid_sql_rate": 1.0,
+        "correct_answer_count": 45,
+        "execution_accuracy": 1.0,
+        "negative_questions_count": 0,
+        "abstain_accuracy": 1.0,
+        "analysis": {
+          "sql_generation": "สมบูรณ์แบบ",
+          "intent_understanding": "สมบูรณ์แบบ"
+        }
+      },
+      "IT": {
+        "total_questions": 45,
+        "valid_sql_count": 45,
+        "valid_sql_rate": 1.0,
+        "correct_answer_count": 45,
+        "execution_accuracy": 1.0,
+        "negative_questions_count": 2,
+        "abstain_accuracy": 1.0,
+        "analysis": {
+          "sql_generation": "สมบูรณ์แบบ",
+          "intent_understanding": "สมบูรณ์แบบ"
+        }
+      },
+      "AIT": {
+        "total_questions": 45,
+        "valid_sql_count": 45,
+        "valid_sql_rate": 1.0,
+        "correct_answer_count": 45,
+        "execution_accuracy": 1.0,
+        "negative_questions_count": 2,
+        "abstain_accuracy": 1.0,
+        "analysis": {
+          "sql_generation": "สมบูรณ์แบบ",
+          "intent_understanding": "สมบูรณ์แบบ"
+        }
+      },
+      "BIT": {
+        "total_questions": 45,
+        "valid_sql_count": 45,
+        "valid_sql_rate": 1.0,
+        "correct_answer_count": 45,
+        "execution_accuracy": 1.0,
+        "negative_questions_count": 2,
+        "abstain_accuracy": 1.0,
+        "analysis": {
+          "sql_generation": "สมบูรณ์แบบ",
+          "intent_understanding": "สมบูรณ์แบบ"
+        }
+      }
+    },
+    "slice_analysis": {
+      "slice_scores": {
+        "DSBA": 1.0,
+        "IT": 1.0,
+        "AIT": 1.0,
+        "BIT": 1.0
+      },
+      "mean_score": 1.0,
+      "standard_deviation": 0.0,
+      "score_disparity": 0.0,
+      "highest_slice": "DSBA (1.0000)",
+      "lowest_slice": "DSBA (1.0000)",
+      "has_shortcut_learning": false,
+      "insight": "ประสิทธิภาพกระจายตัวสม่ำเสมอข้ามทุกกลุ่มข้อมูล ไม่พบ Shortcut Learning"
+    },
+    "combined_evaluation": {
+      "total_questions": 180,
+      "valid_sql_count": 180,
+      "valid_sql_rate": 1.0,
+      "correct_answer_count": 180,
+      "execution_accuracy": 1.0,
+      "negative_questions_count": 6,
+      "abstain_accuracy": 1.0,
+      "analysis": {
+        "sql_generation": "สมบูรณ์แบบ",
+        "intent_understanding": "สมบูรณ์แบบ"
+      }
+    }
+  }
+}
